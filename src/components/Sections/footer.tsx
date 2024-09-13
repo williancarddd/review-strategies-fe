@@ -8,11 +8,13 @@ export default function Footer() {
   return (
     <footer className="bg-blue-600 text-white py-10 lg:py-16">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-8 px-6 text-center lg:text-left">
-        
+
         {/* Logo e Links de App Store */}
         <div className="space-y-6 flex flex-col items-center lg:items-start">
           <div>
-            <Image src="/logoblack.png" alt="Review Strategies" width={50} height={50} />
+            <Link href="/">
+              <Image src="/logoblack.png" alt="Review Strategies" width={50} height={50} />
+            </Link>
           </div>
           <div className="space-y-4">
             <p className="font-semibold">Veja mais</p>

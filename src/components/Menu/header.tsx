@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import LanguageSelect from './language-select';
 import { Button } from '../ui/button';
+import Link from 'next/link';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,7 +17,9 @@ export default function Header() {
     <header className="flex items-center justify-between py-4 px-6 bg-background">
       {/* Logo and Title */}
       <div className="flex items-center space-x-4">
-        <Image src="/Logo.png" alt="logo" width={40} height={40} />
+        <Link href="/">
+          <Image src="/Logo.png" alt="logo" width={40} height={40} />
+        </Link>
         <p className="font-medium font-vibur text-3xl">Review Strategies</p>
       </div>
 

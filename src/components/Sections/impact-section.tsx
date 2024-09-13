@@ -26,7 +26,7 @@ export default function ImpactSection({
   buttonLink,
 }: SectionProps) {
   return (
-    <section className="flex flex-col lg:flex-row items-center justify-between px-6 lg:px-16 py-12 bg-gradient-to-r from-purple-700 via-pink-500 to-red-500 text-white">
+    <section className="h-screen flex flex-col lg:flex-row items-center justify-between px-6 lg:px-16 py-12 bg-gradient-to-r from-purple-700 via-pink-500 to-red-500 text-white">
       {/* Texto à esquerda */}
       <div className="flex flex-col lg:w-1/2 space-y-6 lg:pr-10 gap-4 text-left">
         <h1 className="font-bold text-white text-3xl md:text-5xl lg:text-6xl">
