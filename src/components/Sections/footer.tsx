@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaLinkedin, FaFacebook, FaInstagram, FaTwitter, FaTiktok } from 'react-icons/fa';
+import { FaLinkedin, FaInstagram, FaTiktok } from 'react-icons/fa';
 
 export default function Footer() {
   return (

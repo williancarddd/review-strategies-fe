@@ -1,10 +1,6 @@
 'use client';
 import { useState } from 'react';
 import Image from 'next/image';
-import { NavigationMenu,
-   NavigationMenuItem,
-    NavigationMenuList,
-     NavigationMenuTrigger } from '@/components/ui/navigation-menu'
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import LanguageSelect from './language-select';
 import { Button } from '../ui/button';
