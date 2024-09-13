@@ -14,13 +14,13 @@ export default function Home() {
     <div>
       <Header />
 
-      <main className="p-6">
+      <main>
         <ImpactSection
           title="Construa no Review Strategies"
           subtitle="A melhor maneira de otimizar seus estudos"
-          description="Nossa plataforma ajuda você a melhorar seus estudos com técnicas comprovadas de revisão. Você terá mais confiança e segurança para realizar suas provas e avaliações, além de melhorar sua capacidade de memorização e aprendizado."
-          buttonText="QUERO APROVEITAR MEU TEMPO"
-          buttonLink="/get-access"
+          description="Nossa plataforma ajuda você a melhorar seus estudos com técnicas comprovadas de revisão. "
+          buttonText="EU QUERO"
+          buttonLink="#payment-section" // Link para a seção de pagamento
           imageUrl="/principal.svg"
           imageAlt="Imagem de um computador com um olho"
         />

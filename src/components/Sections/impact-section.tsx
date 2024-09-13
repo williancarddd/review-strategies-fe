@@ -26,15 +26,15 @@ export default function ImpactSection({
   buttonLink,
 }: SectionProps) {
   return (
-    <section className="flex flex-col lg:flex-row items-center justify-between py-32 px-6 lg:px-16">
+    <section className="flex flex-col lg:flex-row items-center justify-between px-6 lg:px-16 py-12 bg-gradient-to-r from-purple-700 via-pink-500 to-red-500 text-white">
       {/* Texto à esquerda */}
-      <div className="flex flex-col lg:w-1/2 space-y-6 lg:pr-10 gap-4">
-        <h1 className="font-bold text-orange-950 text-4xl md:text-6xl lg:text-8xl">
+      <div className="flex flex-col lg:w-1/2 space-y-6 lg:pr-10 gap-4 text-left">
+        <h1 className="font-bold text-white text-3xl md:text-5xl lg:text-6xl">
           {title}
         </h1>
-        <h2 className="text-2xl font-semibold">{subtitle}</h2>
+        <h2 className="text-xl font-semibold">{subtitle}</h2>
         <p className="text-lg">{description}</p>
-        <Link href={buttonLink} className="text-center bg-blue-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-600 transition-colors duration-300 ease-in-out w-2/3">
+        <Link href={buttonLink} className=" text-center bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors duration-300 ease-in-out w-full lg:w-2/3">
           {buttonText}
         </Link>
       </div>

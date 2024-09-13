@@ -53,8 +53,8 @@ const HowToWork = () => {
         </div>
 
         <div className="mt-8">
-          <Link href="/signup" className="bg-blue-500 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-blue-600 transition-colors bg-primary text-primary-foreground hover:translate-y-1 active:translate-y-0 shadow-[0px_8px_0px_0px_rgba(0,0,0,0.15)] hover:shadow-[0px_6px_0px_0px_rgba(0,0,0,0.15)] ">
-            ENTRAR AGORA
+          <Link href="#payment-section" className="bg-blue-500 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-blue-600 transition-colors bg-primary text-primary-foreground hover:translate-y-1 active:translate-y-0 shadow-[0px_8px_0px_0px_rgba(0,0,0,0.15)] hover:shadow-[0px_6px_0px_0px_rgba(0,0,0,0.15)] ">
+            Comece agora
           </Link>
         </div>
       </div>

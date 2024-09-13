@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function ForgettingCurveSection() {
   return (
-    <section className="py-16 px-6 lg:px-16 bg-gray-50">
+    <section className="py-16 px-6 lg:px-8 bg-gray-50">
       <div className="max-w-4xl mx-auto">
         
         {/* Título */}

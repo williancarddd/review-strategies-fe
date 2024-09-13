@@ -12,16 +12,16 @@ import { CheckCircledIcon } from "@radix-ui/react-icons";
 
 export default function Payment() {
   return (
-    <section className="py-16 flex justify-center items-center bg-gray-100" id="fourth-section">
+    <section className="py-8 flex justify-center items-center bg-gray-100" id="payment-section">
       <Card className="max-w-sm bg-gray-900 text-white rounded-lg p-6 relative">
         {/* Badge de popularidade */}
         <span className="absolute top-4 right-4 bg-green-500 text-white text-sm px-3 py-1 rounded-full">
-          Vitálicio
+          Mensal
         </span>
         <CardHeader>
           <CardTitle className="text-white text-xl font-bold">Pioneiro</CardTitle>
           <CardDescription className="text-gray-400 text-5xl font-bold">
-            R$ 39.90
+            R$ 14.90 <span className="text-2xl">/mês</span>
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -56,8 +56,15 @@ export default function Payment() {
             </li>
             <li className="flex items-center">
               <CheckCircledIcon className="w-5 h-5 text-green-400 mr-2" />
+              Estatísticas de estudo.
+            </li>
+            <li className="flex items-center">
+              <CheckCircledIcon className="w-5 h-5 text-green-400 mr-2" />
+              Cadastro de matérias e disciplinas.
+            </li>
+            <li className="flex items-center">
+              <CheckCircledIcon className="w-5 h-5 text-green-400 mr-2" />
               24x7x30 & 24x3x7 & 24x3x15
-   
             </li>
           </ul>
         </CardContent>
