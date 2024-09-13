@@ -19,7 +19,7 @@ const FeatureItem: FC<FeatureItemProps> = ({ icon, title, description}) => (
   </div>
 );
 
-const SecondSection = () => {
+const HowToWork = () => {
   return (
     <section className="py-32 bg-gray-100">
       <div className="max-w-6xl mx-auto text-center space-y-8">
@@ -32,7 +32,7 @@ const SecondSection = () => {
           <FeatureItem
             icon={<FaBook color='black'/>}
             title="Você Ganha Desempenho"
-            description="Você visualiza visualiza seu planejamento de estudos, que é feito de acordo com a sua disponibilidade de tempo e suas necessidades."
+            description="Você  visualiza seu planejamento de estudos, que é feito de acordo com a sua disponibilidade de tempo e suas necessidades."
           />
           <FeatureItem
             icon={<FaChalkboardTeacher color='green'/>}
@@ -41,13 +41,13 @@ const SecondSection = () => {
           />
           <FeatureItem
             icon={<FaChartLine />}
-            title="Veja seu progresso"
+            title="Veja Seu Progresso"
             description="Acompanhe seu progresso e veja como você está evoluindo nos estudos."
         
           />
           <FeatureItem
             icon={<FaLaptopCode color='brown'/>}
-            title="Tenha resultados imediatos"
+            title="Tenha Resultados Imediatos"
             description="Os resultados surgem rapidamente, pois o tempo e seu calendário já estão organizados baseado nas técnicas mais eficientes de estudo."
           />
         </div>
@@ -62,4 +62,4 @@ const SecondSection = () => {
   );
 };
 
-export default SecondSection;
+export default HowToWork;

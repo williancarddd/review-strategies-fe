@@ -14,7 +14,7 @@ interface SectionProps {
   buttonLink: string;
 }
 
-export default function FirstSection({
+export default function ImpactSection({
   title,
   subtitle,
   description,

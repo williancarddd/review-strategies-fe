@@ -25,7 +25,7 @@ const StepItem = ({ imageUrl, imageAlt, title, description, reverse = false }: S
   </div>
 );
 
-const ThirdSection = () => {
+const HowStart = () => {
   return (
     <section className="py-40">
       <div className="max-w-6xl mx-auto text-center space-y-32">
@@ -67,4 +67,4 @@ const ThirdSection = () => {
   );
 };
 
-export default ThirdSection;
+export default HowStart;

@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import { CheckCircledIcon } from "@radix-ui/react-icons";
 
-const FourthSection = () => {
+export default function Payment() {
   return (
     <section className="py-16 flex justify-center items-center bg-gray-100" id="fourth-section">
       <Card className="max-w-sm bg-gray-900 text-white rounded-lg p-6 relative">
@@ -70,5 +70,3 @@ const FourthSection = () => {
     </section>
   );
 };
-
-export default FourthSection;
