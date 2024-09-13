@@ -7,6 +7,8 @@ import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import Header from '@/components/Menu/header';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { AvatarImage } from '@radix-ui/react-avatar';
+import BigCalendar from '@/components/PlatForm/MenuItems/big-calendar';
+import ProfileConfig from '@/components/PlatForm/MenuItems/profile';
 
 interface MenuItem {
   id: string;
@@ -32,24 +34,18 @@ export default function MainLayout() {
 
   const renderContent = () => {
     switch (selectedMenu) {
-      case 'dashboard':
-        return <Dashboard />;
       case 'big-calendar':
-        return <Calendars />;
-      case 'files':
-        return <Files />;
+        return <BigCalendar />;
       case 'settings':
         return <Settings />;
-      case 'invoices':
-        return <Invoices />;
-      case 'teams':
-        return <Teams />;
-      case 'messages':
-        return <Messages />;
-      case 'notifications':
-        return <Notifications />;
+      case 'profile':
+        return <ProfileConfig />;
+      case 'statistics':
+        return <div>Statistics</div>;
+      case 'support':
+        return <div>Support</div>;
       default:
-        return <Dashboard />;
+        return <BigCalendar />;
     }
   };
 
@@ -129,35 +125,8 @@ export default function MainLayout() {
   );
 }
 
-// Componentes simulando as telas renderizadas ao clicar nos itens do menu
-function Dashboard() {
-  return <div>Welcome to the Dashboard!</div>;
-}
 
-function Calendars() {
-  return <div>This is your calendar view!</div>;
-}
-
-function Files() {
-  return <div>Access your files here!</div>;
-}
 
 function Settings() {
   return <div>Adjust your settings here!</div>;
-}
-
-function Invoices() {
-  return <div>Manage your invoices here!</div>;
-}
-
-function Teams() {
-  return <div>Manage your teams here!</div>;
-}
-
-function Messages() {
-  return <div>Check your messages here!</div>;
-}
-
-function Notifications() {
-  return <div>View your notifications here!</div>;
 }
