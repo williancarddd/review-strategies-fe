@@ -1,3 +1,4 @@
+"use client";
 import { Input } from '@/components/ui/input';
 import { EventTheme } from '@/interfaces/event';
 import React, { useState, useEffect } from 'react';
@@ -35,20 +36,6 @@ export default function EventModal({
       new Date(event.start).toDateString() === selectedDate.toDateString()
   );
 
-  useEffect(() => {
-    if (isOpen) {
-      // Quando o modal abre, ativa o bounce
-      setBounceClass('animate-bounce-once');
-
-      // Remove o efeito de bounce após 1 segundo
-      setTimeout(() => {
-        setBounceClass('');
-      }, 1000);
-    } else {
-      resetInputs();
-    }
-  }, [isOpen]);
-
   const resetInputs = () => {
     setTitle('');
     setStartDate(selectedDate ? selectedDate.toISOString().substring(0, 10) : '');
@@ -56,6 +43,23 @@ export default function EventModal({
     setEditorContent('');
     setSelectedEvent(null); // Limpar o evento selecionado
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      // Quando o modal abre, ativa o bounce
+      setBounceClass('animate-bounce-once');
+  
+      // Remove o efeito de bounce após 1 segundo
+      setTimeout(() => {
+        setBounceClass('');
+      }, 1000);
+    } else {
+      resetInputs();
+    }
+  }, [isOpen, resetInputs]);
+  
+
+  
 
   const handleSave = () => {
     if (selectedEvent) {
@@ -75,7 +79,7 @@ export default function EventModal({
         end: new Date(startDate),
         mode,
         description: editorContent,
-        completed: false,
+        allDay: true, // Eventos de dia inteiro
       });
     }
     onClose();
@@ -83,7 +87,7 @@ export default function EventModal({
 
   const handleSelectEvent = (event: EventTheme) => {
     setSelectedEvent(event);
-    setTitle(event.title);
+    setTitle(event.title || '');
     setStartDate(event.start.toISOString().substring(0, 10));
     setMode(event.mode || '');
     setEditorContent(event.description || '');

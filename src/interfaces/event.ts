@@ -1,9 +1,9 @@
 export interface EventTheme {
-  description: string;
+  description?: string;
   start: Date;
   end: Date;
   mode: string;
-  title: string;
-  completed: boolean;
+  title?: string;
+  completed?: boolean;
   allDay: boolean;
 }

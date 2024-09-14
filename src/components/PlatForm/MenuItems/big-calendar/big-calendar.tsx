@@ -3,25 +3,29 @@ import EventList from './event-list';
 import { addDays } from 'date-fns';
 import EventModal from './event-modal';
 import CalendarFeature from './calendar-feature';
+import { EventTheme } from '@/interfaces/event';
 
-const events = [
+const events: EventTheme[] = [
   {
     title: 'Ditadura Militar (História)',
     start: new Date(),
     end: addDays(new Date(), 1),
     allDay: false,
+    mode: '24x7x30',
   },
   {
     title: 'Parasitologia (Biologia)',
     start: new Date(),
     end: addDays(new Date(), 1),
     allDay: false,
+    mode: '24x7x30',
   },
   {
     title: 'Pensamento Sociológico (Filosofia)',
     start: new Date(),
     end: addDays(new Date(), 1),
     allDay: false,
+    mode: '24x7x30',
   },
   // Adicione mais eventos conforme necessário
 ];
