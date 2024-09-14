@@ -7,8 +7,8 @@ import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import Header from '@/components/Menu/header';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { AvatarImage } from '@radix-ui/react-avatar';
-import BigCalendar from '@/components/PlatForm/MenuItems/big-calendar';
 import ProfileConfig from '@/components/PlatForm/MenuItems/profile';
+import BigCalendar from '@/components/PlatForm/MenuItems/big-calendar/big-calendar';
 
 interface MenuItem {
   id: string;
@@ -117,8 +117,8 @@ export default function MainLayout() {
         </button>
 
         {/* Conteúdo Principal */}
-        <main className="flex-1 bg-white p-8 lg:p-16 flex justify-center items-center">
-          <div className="max-w-4xl w-full">{renderContent()}</div>
+        <main className="flex-1 bg-white p-4">
+          <div>{renderContent()}</div>
         </main>
       </div>
     </div>

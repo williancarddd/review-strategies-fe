@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import Header from '@/components/Menu/header'; // Use o Header que já criamos
 
 // Componente de layout principal
@@ -66,7 +65,7 @@ export default function MainLayout() {
         </aside>
 
         {/* Conteúdo Principal */}
-        <main className="flex-1 bg-white p-8">
+        <main className="flex-1 bg-white p-4">
           {renderContent()}
         </main>
       </div>
