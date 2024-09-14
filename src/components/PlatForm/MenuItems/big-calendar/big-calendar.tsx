@@ -8,7 +8,7 @@ import { EventTheme } from '@/interfaces/event';
 const events: EventTheme[] = [
   {
     title: 'Ditadura Militar (História)',
-    start: new Date(),
+    start: addDays(new Date(), 1),
     end: addDays(new Date(), 1),
     allDay: false,
     mode: '24x7x30',

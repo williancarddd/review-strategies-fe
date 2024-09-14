@@ -20,12 +20,13 @@ export default function CalendarFeature({
   onDateClick,
 }: CalendarFeatureProps) {
   return (
-    <div className="w-4/5">
+    <div className="w-full">
       <Calendar
         localizer={localizer}
         events={events}
         startAccessor="start"
         endAccessor="end"
+        defaultView="month"
         views={['month']}
         date={date}
         onNavigate={onNavigate}
@@ -33,7 +34,11 @@ export default function CalendarFeature({
         onSelectSlot={(slotInfo) => onDateClick(slotInfo.start)}
         style={{ height: 650 }}
         popup
-        className="p-4 border border-gray-300 rounded-lg"
+        showAllEvents
+        className="border border-gray-300 rounded-lg"
+        tooltipAccessor={(event: EventTheme) =>
+          `${event.title} - ${moment(event.start).format('HH:mm')}`
+        }
       />
     </div>
   );
