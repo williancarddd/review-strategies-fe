@@ -1,39 +1,14 @@
 import React, { useState } from 'react';
 import EventList from './event-list';
-import { addDays } from 'date-fns';
-import EventModal from './event-modal';
+import EventModal from '../../../Event/event-modal';
 import CalendarFeature from './calendar-feature';
-import { EventTheme } from '@/interfaces/event';
-
-const events: EventTheme[] = [
-  {
-    title: 'Ditadura Militar (História)',
-    start: addDays(new Date(), 1),
-    end: addDays(new Date(), 1),
-    allDay: false,
-    mode: '24x7x30',
-  },
-  {
-    title: 'Parasitologia (Biologia)',
-    start: new Date(),
-    end: addDays(new Date(), 1),
-    allDay: false,
-    mode: '24x7x30',
-  },
-  {
-    title: 'Pensamento Sociológico (Filosofia)',
-    start: new Date(),
-    end: addDays(new Date(), 1),
-    allDay: false,
-    mode: '24x7x30',
-  },
-  // Adicione mais eventos conforme necessário
-];
+import { useEvent } from '@/hooks/event-hook';
 
 export default function BigCalendar() {
   const [date, setDate] = useState(new Date());
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const { events } = useEvent();
 
   const handleNavigate = (newDate: Date) => {
     setDate(newDate);

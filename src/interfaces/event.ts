@@ -1,4 +1,5 @@
 export interface EventTheme {
+  id?: string;
   description?: string;
   start: Date;
   end: Date;
