@@ -5,12 +5,18 @@ import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import LanguageSelect from './language-select';
 import { Button } from '../ui/button';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const handleRedirect = () => {
+    router.push('/login');
   };
 
   return (
@@ -41,7 +47,7 @@ export default function Header() {
         <LanguageSelect />
 
         {/* Login Button */}
-        <Button variant="default">
+        <Button variant="default" onClick={handleRedirect}>
           Entrar
         </Button>
       </div>
