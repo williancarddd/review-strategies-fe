@@ -4,25 +4,26 @@ import { addDays } from 'date-fns';
 let events: EventTheme[] = [];
 
 export const getEvents = async (id:string): Promise<EventTheme[]> => {
+  console.log(id);
   const events: EventTheme[] = [
     {
       title: 'Ditadura Militar (História)',
-      start: addDays(new Date(), 1).toISOString(),
-      end: addDays(new Date(), 1).toISOString(),
+      start: addDays(new Date(), 1),
+      end: addDays(new Date(), 1),
       allDay: false,
       mode: '24x7x30',
     },
     {
       title: 'Parasitologia (Biologia)',
-      start: new Date().toISOString(),
-      end: addDays(new Date(), 1).toISOString(),
+      start: new Date(),
+      end: addDays(new Date(), 1),
       allDay: false,
       mode: '24x7x30',
     },
     {
       title: 'Pensamento Sociológico (Filosofia)',
-      start: new Date().toISOString(),
-      end: addDays(new Date(), 1).toISOString(),
+      start: new Date(),
+      end: addDays(new Date(), 1),
       allDay: false,
       mode: '24x7x30',
     },

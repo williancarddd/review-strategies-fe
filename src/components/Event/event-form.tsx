@@ -10,12 +10,12 @@ import { EventTheme } from "@/interfaces/event";
 import { eventSchema } from "@/stores/event-store";
 
 interface EventFormProps {
-  onSubmit: (data: any) => void;
+  onSubmit: (data: EventTheme) => void;
   defaultValues?: EventTheme | null;
   selectedEvent: EventTheme | null;
 }
 
-export function EventForm({ onSubmit, defaultValues, selectedEvent }: EventFormProps) {
+export function EventForm({ defaultValues, selectedEvent }: EventFormProps) {
   const form = useForm({
     resolver: zodResolver(eventSchema),
     defaultValues: defaultValues || {
@@ -63,7 +63,14 @@ export function EventForm({ onSubmit, defaultValues, selectedEvent }: EventFormP
               <FormItem className="w-full">
                 <FormLabel>Data Inicial</FormLabel>
                 <FormControl>
-                  <Input {...field} type="datetime-local" className="w-full" />
+                  <Input
+                    {...field}
+                    type="datetime-local"
+                    placeholder="Data Inicial"
+                    className="w-full"
+                    onChange={(date) => field.onChange(new Date(date.target.value).toISOString())}
+                    value={field.value ? new Date(field.value).toISOString().slice(0, 16) : ''}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>

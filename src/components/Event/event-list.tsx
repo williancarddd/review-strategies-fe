@@ -1,9 +1,10 @@
 import React from 'react';
 import { Badge } from '../ui/badge';
+import { EventTheme } from '@/interfaces/event';
 
 interface EventListProps {
-  events: any[];
-  onSelectEvent: (event: any) => void;
+  events: EventTheme[];
+  onSelectEvent: (event: EventTheme) => void;
 }
 
 export function EventList({ events, onSelectEvent }: EventListProps) {
@@ -21,7 +22,7 @@ export function EventList({ events, onSelectEvent }: EventListProps) {
             onClick={() => onSelectEvent(event)}
           >
             <Badge variant="outline">{event.title}</Badge>
-            <Badge>{event.start.split('T')[1].slice(0, 5)}</Badge>
+            <Badge>{event.start.toLocaleTimeString()}</Badge>
           </div>
         ))
       ) : (

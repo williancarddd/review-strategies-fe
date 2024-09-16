@@ -8,7 +8,7 @@ export default function BigCalendar() {
   const [date, setDate] = useState(new Date());
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-  const { events } = useEvent();
+  const { events, editEvent, addEvent } = useEvent();
 
   const handleNavigate = (newDate: Date) => {
     setDate(newDate);
@@ -39,15 +39,10 @@ export default function BigCalendar() {
         selectedDate={selectedDate}
         events={events}
         onCreateEvent={(newEvent) => {
-          events.push(newEvent);
-          setModalOpen(false);
+          addEvent(newEvent);
         }}
         onUpdateEvent={(updatedEvent) => {
-          const index = events.findIndex(
-            (event) => event.title === updatedEvent.title
-          );
-          events[index] = updatedEvent;
-          setModalOpen(false);
+          editEvent("a", updatedEvent);
         }}
       />
     </div>

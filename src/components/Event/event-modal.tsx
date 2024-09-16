@@ -33,11 +33,11 @@ export default function EventModal({
     }
   }, [isOpen]);
 
-  const handleFormSubmit = (data: any) => {
+  const handleFormSubmit = (data: EventTheme) => {
     if (selectedEvent) {
       onUpdateEvent({ ...selectedEvent, ...data });
     } else {
-      onCreateEvent({ ...data, start: new Date(data.startDate), allDay: true });
+      onCreateEvent({ ...data, start: new Date(data.start), allDay: true });
     }
     onClose();
   };
