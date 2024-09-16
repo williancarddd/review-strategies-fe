@@ -10,13 +10,14 @@ export function LoginRightPanel() {
         <p className="text-lg font-light">Faça parte dessa comunidade e melhore a sua retenção de conteúdo</p>
       </div>
 
-      {/* Imagem centralizada */}
-      <div className="absolute bottom-0 left-0 right-0">
+      
+      <div className="absolute bottom-0 left-0">
+        {/* Imagem do lado direito */}
         <Image
           src={"/boysandlogin.png"}
           alt="Login Illustration"
-          width={600}
-          height={600}
+          width={500}
+          height={500}
         />
       </div>
     </div>

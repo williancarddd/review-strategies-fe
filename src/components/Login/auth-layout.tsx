@@ -1,6 +1,7 @@
 'use client';
 import { ReactNode } from 'react';
 import Image from 'next/image';
+import { LoginRightPanel } from './login-right';
 
 interface AuthLayoutProps {
   children: ReactNode;
@@ -14,23 +15,9 @@ export function AuthLayout({ children }: AuthLayoutProps) {
         {children}
       </div>
 
-      {/* Área da Imagem e Título à Direita */}
-      <div className="hidden lg:flex flex-1 relative bg-gradient-to-r from-indigo-800 to-indigo-400">
-        <div className="absolute top-20 w-full text-center text-white p-12">
-          <h1 className="text-5xl font-bold mb-6">A Organização é a Chave para os Seus Estudos</h1>
-          <p className="text-lg font-light">Faça parte dessa comunidade e melhore sua retenção de conteúdo</p>
-        </div>
-
-        {/* Imagem centralizada */}
-        <div className="absolute inset-0 flex justify-center items-center">
-          <Image
-            src="/boysandlogin.png"
-            alt="Login Illustration"
-            width={400}
-            height={400}
-          />
-        </div>
-      </div>
+      {/* Área de Imagem à Direita */}
+      <LoginRightPanel />
+      
     </div>
   );
 }

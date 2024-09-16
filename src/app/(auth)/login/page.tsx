@@ -9,6 +9,11 @@ export default function LoginPage() {
       <p className="text-sm text-gray-400">Entre com seu usuário e senha</p>
       <LoginForm />
       <div className="mt-8 self-center">
+        <Link href="/register" className="text-sm text-indigo-500 hover:text-indigo-400">
+          Não tem uma conta? Registre-se
+        </Link>
+      </div>
+      <div className="mt-8 self-center">
         <Link href="/" className="text-sm text-indigo-500 hover:text-indigo-400">
           Voltar à página principal
         </Link>
