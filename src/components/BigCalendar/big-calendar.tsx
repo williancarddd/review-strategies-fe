@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import EventList from './event-list';
-import EventModal from '../../../Event/event-modal';
 import CalendarFeature from './calendar-feature';
 import { useEvent } from '@/hooks/event-hook';
+import EventModal from '../Event/event-modal';
 
 export default function BigCalendar() {
   const [date, setDate] = useState(new Date());

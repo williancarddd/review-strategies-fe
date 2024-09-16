@@ -1,5 +1,5 @@
-import MainLayout from "./calendar";
+import Calendar from "./calendar";
 
 export default function Page() {
-  return <MainLayout />;
+  return <Calendar />;;
 }

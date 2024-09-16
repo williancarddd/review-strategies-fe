@@ -82,6 +82,7 @@ body {
   }
 }
 
+
 @layer base {
   * {
     @apply border-border;
