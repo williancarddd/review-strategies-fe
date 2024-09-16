@@ -1,24 +1,32 @@
-import { useMutation,  useQueryClient } from '@tanstack/react-query';
-import { CreateUserDto } from '@/schemas/user-schema';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { CreateUserDto, User } from '@/schemas/user-schema';
 import { useUserStore } from '@/stores/user-store';
+import { useNotification } from '@/components/Notification/notification-provider'; 
 
-// Hook que centraliza as operações com usuários
 export function useCreateUser() {
-  const queryClient = useQueryClient();
   const { createUser } = useUserStore();
+  const { notify } = useNotification(); // Acessando o contexto de notificação
 
-  // Mutation para criar um usuário
   const createUserMutation = useMutation({
     mutationFn: (data: CreateUserDto) => createUser(data),
-    onSuccess: (data) => {
-      //@ts-ignore
-      if (data && data?.name ) {
-       throw data;
-      }
-      console.log('Usuário criado com sucesso', data);
-      return data;
+    onSuccess: () => {
+      notify("default", "Sucesso", "Usuário criado com sucesso!");
+    },
+    onError: () => {
+      notify("destructive", "Erro", "Erro ao criar usuário email já cadastrado");
     },
   });
 
   return createUserMutation;
+}
+
+
+export function useGetUserById(id: string) {
+  const { getUserById } = useUserStore();
+
+ const getUserByIdUseQuery = useQuery({
+    queryKey: ['user', id],
+    queryFn: () => getUserById(id),
+  });
+  return getUserByIdUseQuery;
 }

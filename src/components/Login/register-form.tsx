@@ -10,8 +10,6 @@ import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "
 import { useCreateUser } from "@/hooks/user-hook";
 import { useRouter } from "next/navigation";
 import { z } from "zod";
-import { useState } from "react";
-import { NotificationSystem } from "../Notification/notification";
 
 // Atualizando o schema para incluir confirmação de senha
 const RegisterSchema = CreateUserSchema.extend({
@@ -26,7 +24,6 @@ const RegisterSchema = CreateUserSchema.extend({
 export function RegisterForm() {
   const router = useRouter();
   const { data, isSuccess, mutateAsync, isPending, error, isError  } = useCreateUser(); 
-  const [notification, setNotification] = useState<{ variant: "default" | "destructive", title: string, description: string } | null>(null);
   
   const form = useForm<CreateUserDto & { confirmPassword: string }>({
     resolver: zodResolver(RegisterSchema),
@@ -43,24 +40,7 @@ export function RegisterForm() {
 
   const onSubmit = async (data: CreateUserDto & { confirmPassword: string }) => {
     const { confirmPassword, ...rest } = data;
-      
-    try {
-      await mutateAsync(rest);
-      setNotification({
-        variant: "default",
-        title: "Usuário criado com sucesso",
-        description: "Seu usuário foi criado com sucesso. Você será redirecionado para a página de login.",
-      });
-      
-    } catch (error) {
-      console.log(error);
-      setNotification({
-        variant: "destructive",
-        title: "Erro ao criar usuário",
-        description: (error as Error).message,
-      });
-    }
-   
+    await mutateAsync(rest);
   };
 
   return (
@@ -191,16 +171,6 @@ export function RegisterForm() {
           {isPending ? "Carregando..." : "Registrar"}
         </Button>
 
-        {/* Notificação de sucesso ou erro */}
-        {notification && (
-          <div className="mt-4">
-            <NotificationSystem
-              variant={notification.variant}
-              title={notification.title}
-              description={notification.description}
-            />
-          </div>
-        )}
       </form>
     </Form>
   );

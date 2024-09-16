@@ -18,9 +18,7 @@ export const UserSchema = z.object({
   phone: z.string({
     required_error: 'Phone is required',
   }).min(10).describe('The phone number of the user'),
-  email: z.string({
-    required_error: 'Email is required',
-  }).email().describe('The email of the user'),
+  email: z.string().email().describe('The email of the user'),
   createdAt: z.date().describe('The date when the user was created'),
   updatedAt: z.date().describe('The date when the user was updated'),
 });

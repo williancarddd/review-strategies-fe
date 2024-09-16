@@ -1,23 +1,23 @@
-// app/(private)/layout.tsx
 'use client';
 
-import { useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuthStore } from '@/stores/authStore';
 import Header from '@/components/Menu/header';
-import MenuClient from './menu-client';
+import { useAuthStore } from '@/stores/auth-store';
+import { cn } from '@/lib/utils';
+import { vibur, montserrat, poppins } from '@/lib/fonts';  // Importar fontes centralizadas
+import MenuClient from '@/components/MenuClient/menu-client';
 
 interface PrivateLayoutProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export default function PrivateLayout({ children }: PrivateLayoutProps) {
   const router = useRouter();
   const { isAuthenticated } = useAuthStore();
   const [loading, setLoading] = useState(true);
-  
-  // Verificar se estamos em ambiente de teste
-  const isTestEnvironment = "true"=== 'true';
+
+  const isTestEnvironment = false;
 
   useEffect(() => {
     if (!isTestEnvironment) {
@@ -25,20 +25,19 @@ export default function PrivateLayout({ children }: PrivateLayoutProps) {
         setLoading(false);
       });
 
-      // Se a store já foi hidratada, skip o estado de carregamento
       if (useAuthStore.persist.hasHydrated()) {
         setLoading(false);
       }
 
       return () => unsubscribe();
     } else {
-      setLoading(false); // Não carrega nada se estiver em teste
+      setLoading(false);
     }
   }, [isTestEnvironment]);
 
   useEffect(() => {
     if (!loading && !isAuthenticated && !isTestEnvironment) {
-      router.push('/login'); // Redireciona para a página de login se não autenticado
+      router.push('/login');
     }
   }, [loading, isAuthenticated, isTestEnvironment, router]);
 
@@ -51,11 +50,13 @@ export default function PrivateLayout({ children }: PrivateLayoutProps) {
   }
 
   return (
-    <div className="h-screen flex flex-col">
-      <Header />
-      <div className="flex flex-1">
-        <MenuClient />
-        <main className="flex-1 bg-white p-4 lg:p-8">{children}</main>
+    <div className={cn('min-h-screen bg-background font-sans antialiased', vibur.variable, montserrat.variable, poppins.variable)}>
+      <div className="h-screen flex flex-col">
+        <Header />
+        <div className="flex flex-1">
+          <MenuClient />
+          <main className="flex-1 bg-white p-4 lg:p-8">{children}</main>
+        </div>
       </div>
     </div>
   );

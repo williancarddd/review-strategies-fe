@@ -1,22 +1,15 @@
-import { Vibur, Montserrat, Poppins } from 'next/font/google';
-import '../globals.css';
+import { ReactNode } from 'react';
 import { cn } from '@/lib/utils'; 
-import { Analytics } from "@vercel/analytics/react";
+import { vibur, montserrat, poppins } from '@/lib/fonts';  // Importar fontes centralizadas
 
-const vibur = Vibur({ weight: ['400'], subsets: ['latin'], variable: '--font-vibur' });
-const montserrat = Montserrat({ weight: ['400', '700', '500'], subsets: ['latin'], variable: '--font-montserrat' });
-const poppins = Poppins({ weight: ['400', '600', '700'], subsets: ['latin'], variable: '--font-poppins' });
+interface PublicLayoutProps {
+  children: ReactNode;
+}
 
-export default function PublicLayout({ children }: { children: React.ReactNode }) {
+export default function PublicLayout({ children }: PublicLayoutProps) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="32x32" />
-      </head>
-      <body className={cn('min-h-screen bg-background font-sans antialiased', vibur.variable, montserrat.variable, poppins.variable)}>
-        <div>{children}</div>
-        <Analytics />
-      </body>
-    </html>
+    <div className={cn('min-h-screen bg-background font-sans antialiased', vibur.variable, montserrat.variable, poppins.variable)}>
+      {children}
+    </div>
   );
 }

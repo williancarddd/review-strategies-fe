@@ -12,7 +12,9 @@ import ForgettingCurveExplanation from '@/components/Sections/forggeting-curve-e
 export default function Home() {
   return (
     <div>
-      <Header />
+      <div>
+        <Header />
+      </div>
       <main>
         <ImpactSection
           title="Construa no Review Strategies"

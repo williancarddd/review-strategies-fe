@@ -1,5 +1,5 @@
+import { useAuthStore } from '@/stores/auth-store';
 import axios from 'axios';
-import { useAuthStore } from '@/stores/authStore'; // Supondo que você esteja usando Zustand ou outra store
 
 const apiClient = axios.create({
   baseURL: "http://localhost:4123",
