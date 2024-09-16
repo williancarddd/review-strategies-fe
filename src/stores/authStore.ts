@@ -1,4 +1,3 @@
-import apiClient from '@/lib/axios';
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 
@@ -22,24 +21,31 @@ export const useAuthStore = create<AuthState>()(
       isAuthenticated: false,
 
       login: async (email: string, password: string) => {
-        try {
-          const response = await apiClient.post('/login', { email, password });
-          const user = response.data.user;
+        // Chamada para API de login
+        const response = await fetch('/api/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, password }),
+        });
 
-          set({ user, isAuthenticated: true });
-        } catch (error) {
-          throw error;
+        if (response.ok) {
+          const data = await response.json();
+          set({ user: data.user, isAuthenticated: true });
+        } else {
+          throw new Error('Login failed');
         }
       },
 
       logout: () => {
         set({ user: null, isAuthenticated: false });
-        delete apiClient.defaults.headers.common['Authorization'];
+        localStorage.removeItem('auth-storage'); // Remove do localStorage
       },
     }),
     {
-      name: 'auth-storage', // unique name for the storage item
-      storage: createJSONStorage(() => localStorage), // using localStorage here
+      name: 'auth-storage', // nome para o armazenamento persistente
+      storage: createJSONStorage(() => localStorage),
     }
   )
 );
