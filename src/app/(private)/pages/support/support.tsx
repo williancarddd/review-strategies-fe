@@ -5,7 +5,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
 
@@ -13,6 +12,8 @@ const ticketSchema = z.object({
   type: z.string().min(1, { message: "Selecione o tipo de ticket." }),
   description: z.string().min(1, { message: "A descrição é obrigatória." }),
 });
+
+type Ticket = z.infer<typeof ticketSchema>;
 
 export function SupportTicketForm() {
 
@@ -25,7 +26,7 @@ export function SupportTicketForm() {
     },
   });
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: Ticket) => {
     console.log("Ticket Enviado:", data);
   };
 

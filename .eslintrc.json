@@ -1,3 +1,13 @@
 {
+  // disable role is defined but...
+  "rules": {
+
+    // ...never used
+    "no-unused-vars": "off",
+
+    // ...never used
+    "@typescript-eslint/no-unused-vars": "off"  
+    
+  },
   "extends": ["next/core-web-vitals", "next/typescript"]
 }
