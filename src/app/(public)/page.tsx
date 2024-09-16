@@ -13,7 +13,6 @@ export default function Home() {
   return (
     <div>
       <Header />
-
       <main>
         <ImpactSection
           title="Construa no Review Strategies"

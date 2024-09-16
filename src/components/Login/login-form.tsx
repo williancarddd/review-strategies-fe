@@ -1,10 +1,10 @@
+// components/Login/login-form.tsx
 "use client";
 
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
-import Link from "next/link";
 
 export function LoginForm() {
   const form = useForm({
@@ -16,7 +16,7 @@ export function LoginForm() {
 
   const onSubmit = (data: any) => {
     console.log("Form submitted:", data);
-    // Adicione a lógica de autenticação aqui
+    // Lógica de autenticação
   };
 
   return (
@@ -50,21 +50,9 @@ export function LoginForm() {
             )}
           />
         </div>
-
-        <div className="flex items-center justify-between">
-          <Link href="#" className="text-sm font-medium text-indigo-500 hover:text-indigo-400">
-            Esqueceu sua senha?
-          </Link>
-        </div>
-
-        <Button type="submit" className="w-full bg-indigo-500 hover:bg-indigo-400">
+        <Button type="submit" className="w-full">
           Login
         </Button>
-
-        <div className="flex justify-center">
-          <p className="text-sm text-gray-400">Não tem uma conta?</p>
-          <Link href="#" className="ml-2 text-indigo-500 hover:text-indigo-400">Sign up</Link>
-        </div>
       </form>
     </Form>
   );

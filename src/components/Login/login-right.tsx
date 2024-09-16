@@ -11,12 +11,12 @@ export function LoginRightPanel() {
       </div>
 
       {/* Imagem centralizada */}
-      <div className="absolute inset-0 flex justify-center items-center">
+      <div className="absolute bottom-0 left-0 right-0">
         <Image
           src={"/boysandlogin.png"}
           alt="Login Illustration"
-          width={400}
-          height={400}
+          width={600}
+          height={600}
         />
       </div>
     </div>
