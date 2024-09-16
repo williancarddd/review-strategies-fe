@@ -19,8 +19,8 @@ export const UserSchema = z.object({
     required_error: 'Phone is required',
   }).min(10).describe('The phone number of the user'),
   email: z.string().email().describe('The email of the user'),
-  createdAt: z.date().describe('The date when the user was created'),
-  updatedAt: z.date().describe('The date when the user was updated'),
+  createdAt: z.date().describe('The date when the user was created').optional(),
+  updatedAt: z.date().describe('The date when the user was updated').optional(),
 });
 
 export type User = z.infer<typeof UserSchema>;
@@ -33,3 +33,35 @@ export const CreateUserSchema = UserSchema.omit({
 });
 
 export type CreateUserDto = z.infer<typeof CreateUserSchema>;
+
+
+export const UpdateUserSchema = UserSchema.omit({
+  id: true,
+  password: true,
+})
+.extend({
+  password: z.preprocess(
+    (val) => (val === '' ? undefined : val), // Se o valor for uma string vazia, transforma para `undefined`
+    z.string().min(6, 'A senha deve conter pelo menos 6 caracteres').optional()
+  ),
+  confirmPassword: z.preprocess(
+    (val) => (val === '' ? undefined : val),
+    z.string().optional()
+  ),
+})
+.refine((data) => {
+  // Valida apenas se a senha for fornecida
+  if (data.password || data.confirmPassword) {
+    return data.password === data.confirmPassword;
+  }
+  return true;
+}, {
+  message: 'As senhas não correspondem',
+  path: ['confirmPassword'],
+});
+
+
+
+
+
+export type ProfileUpdateDto = z.infer<typeof UpdateUserSchema>;

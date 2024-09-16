@@ -4,57 +4,35 @@ import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
-import { z } from "zod";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
-
-// Definindo o schema com Zod
-export const UserSchema = z.object({
-  id: z.string().cuid().describe('The id of the user'),
-  username: z.string({
-    required_error: 'Username is required',
-  }).min(3).describe('The username of the user'),
-  name: z.string({
-    required_error: 'Name is required',
-  }).min(3).describe('The name of the user'),
-  objective: z.string({
-    required_error: 'Objective is required',
-  }).min(3).describe('The objective of the user'),
-  password: z.string({
-    required_error: 'Password is required',
-  }).min(6).describe('The password of the user'),
-  email: z.string({
-    required_error: 'Email is required',
-  }).email().describe('The email of the user'),
-  language: z.string().min(2).describe('The preferred language of the user'),
-  phoneNumber: z.string().min(10).describe('The phone number of the user'),
-  createdAt: z.date().describe('The date when the user was created'),
-  updatedAt: z.date().describe('The date when the user was updated'),
-});
-
-// Definindo os tipos do formulário com base no schema
-type UserFormValues = z.infer<typeof UserSchema>;
-
-const userData = {
-  id: '1',
-  username: 'johndoe',
-  name: 'John Doe',
-  objective: 'Aprender programação',
-  password: '123456',
-  email: 'johndoe@example.com',
-  phoneNumber: '1234567890',
-  language: 'pt-br',
-  createdAt: new Date(),
-  updatedAt: new Date(),
-};
+import { useUpdateUser } from "@/hooks/user-hook";
+import { useUserStore } from "@/stores/user-store";
+import { ProfileUpdateDto, UpdateUserSchema } from "@/schemas/user-schema";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
 export function ProfileForm() {
-  const form = useForm<UserFormValues>({
-    resolver: zodResolver(UserSchema),
-    defaultValues: userData,
-  });
+  const { user } = useUserStore();
+  const { mutateAsync, isPending } = useUpdateUser();
 
-  const onSubmit = (data: UserFormValues) => {
-    console.log(data);
+  const form = useForm<ProfileUpdateDto>({
+    resolver: zodResolver(UpdateUserSchema),
+    defaultValues: {
+      username: user?.username || '',
+      name: user?.name || '',
+      objective: user?.objective || '',
+      password: '',
+      confirmPassword: '',
+      email: user?.email || '',
+      phone: user?.phone || '',
+      language: user?.language || 'pt-br',
+    },
+  });
+  // show erros
+  console.log(form.formState.errors);
+  const onSubmit = async (data: ProfileUpdateDto) => {
+    const { confirmPassword, ...userData } = data; // Remover confirmação de senha antes de enviar
+    console.log(userData);
+    await mutateAsync({ id: user?.id || '', data: userData });
   };
 
   return (
@@ -63,7 +41,7 @@ export function ProfileForm() {
         <h2 className="text-2xl font-semibold text-center mb-6">Editar Perfil</h2>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {/* Campo Nome de Usuário */}
+            {/* Campo Nome de Usuário  */}
             <FormField
               control={form.control}
               name="username"
@@ -71,7 +49,7 @@ export function ProfileForm() {
                 <FormItem className="w-full">
                   <FormLabel>Nome de Usuário</FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Digite o nome de usuário" />
+                    <Input {...field} placeholder="Digite o nome de usuário" disabled />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -116,22 +94,7 @@ export function ProfileForm() {
                 <FormItem className="w-full">
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Digite seu email" />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            {/* Campo Senha */}
-            <FormField
-              control={form.control}
-              name="password"
-              render={({ field }) => (
-                <FormItem className="w-full">
-                  <FormLabel>Senha</FormLabel>
-                  <FormControl>
-                    <Input {...field} type="password" placeholder="Digite sua senha" />
+                    <Input {...field} placeholder="Digite seu email"  disabled/>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -141,7 +104,7 @@ export function ProfileForm() {
             {/* Campo Telefone */}
             <FormField
               control={form.control}
-              name="phoneNumber"
+              name="phone"
               render={({ field }) => (
                 <FormItem className="w-full">
                   <FormLabel>Número de Telefone</FormLabel>
@@ -161,7 +124,7 @@ export function ProfileForm() {
                 <FormItem className="w-full">
                   <FormLabel>Idioma</FormLabel>
                   <FormControl>
-                    <Select {...field}>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <SelectTrigger className="w-[180px]">
                         <SelectValue placeholder="Selecione o idioma" />
                       </SelectTrigger>
@@ -176,10 +139,52 @@ export function ProfileForm() {
               )}
             />
 
+            {/* Accordion para Mudar Senha */}
+            <div className="sm:col-span-3">
+              <Accordion type="single" collapsible>
+                <AccordionItem value="item-1">
+                  <AccordionTrigger>Alterar Senha</AccordionTrigger>
+                  <AccordionContent>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 p-4">
+                      {/* Campo Senha */}
+                      <FormField
+                        control={form.control}
+                        name="password"
+                        render={({ field }) => (
+                          <FormItem className="w-full">
+                            <FormLabel>Nova Senha</FormLabel>
+                            <FormControl>
+                              <Input {...field} type="password" placeholder="Digite sua nova senha" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      {/* Campo Confirmação de Senha */}
+                      <FormField
+                        control={form.control}
+                        name="confirmPassword"
+                        render={({ field }) => (
+                          <FormItem className="w-full">
+                            <FormLabel>Confirme a Nova Senha</FormLabel>
+                            <FormControl>
+                              <Input {...field} type="password" placeholder="Confirme sua nova senha" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </div>
+
             {/* Botão de Enviar */}
             <div className="sm:col-span-3 flex justify-center">
-              <Button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white">
-                Salvar Alterações
+              <Button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white" disabled={isPending}>
+                {isPending ? "Salvando..." : "Salvar Alterações"}
               </Button>
             </div>
           </form>

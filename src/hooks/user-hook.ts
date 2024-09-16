@@ -30,3 +30,23 @@ export function useGetUserById(id: string) {
   });
   return getUserByIdUseQuery;
 }
+
+
+export function useUpdateUser() {
+  const { updateUser } = useUserStore();
+  const { notify } = useNotification();
+  const queryClient = useQueryClient();
+
+  const updateUserMutation = useMutation({
+    mutationFn: ({ id, data }: { id: string; data: Partial<User> }) =>
+      updateUser(id, data),
+    onSuccess: () => {
+      notify("default", "Sucesso", "Perfil atualizado com sucesso!");
+    },
+    onError: () => {
+      notify("destructive", "Erro", "Erro ao atualizar perfil.");
+    },
+  });
+
+  return updateUserMutation;
+}

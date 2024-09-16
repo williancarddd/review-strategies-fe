@@ -9,11 +9,11 @@ const config: Config = {
   ],
   theme: {
   	extend: {
-			fontFamily: {
-        sans: ['var(--font-montserrat)', 'sans-serif'],
-        poppins: ['var(--font-poppins)', 'sans-serif'],
-        vibur: ['var(--font-vibur)', 'cursive'],
-      },
+  		fontFamily: {
+  			sans: ['var(--font-montserrat)', 'sans-serif'],
+  			poppins: ['var(--font-poppins)', 'sans-serif'],
+  			vibur: ['var(--font-vibur)', 'cursive']
+  		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
