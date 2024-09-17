@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaLinkedin, FaInstagram, FaTiktok } from 'react-icons/fa';
+import { FaLinkedin, FaInstagram, FaTiktok, FaEnvelope } from 'react-icons/fa';
 
 export default function Footer() {
   return (
@@ -19,9 +19,18 @@ export default function Footer() {
           <div className="space-y-4">
             <p className="font-semibold">Veja mais</p>
             <div className="flex justify-center lg:justify-start space-x-4">
-              <FaLinkedin className="w-6 h-6 hover:text-gray-300 cursor-pointer" />
-              <FaInstagram className="w-6 h-6 hover:text-gray-300 cursor-pointer" />
-              <FaTiktok className="w-6 h-6 hover:text-gray-300 cursor-pointer" />
+              <Link href="https://www.linkedin.com">
+                <FaLinkedin className="w-6 h-6 hover:text-gray-300 cursor-pointer" />
+              </Link>
+              <Link href="https://www.instagram.com/reviewstrategies?igsh=MW96ZW1yZjg2M2g0bQ==">
+                <FaInstagram className="w-6 h-6 hover:text-gray-300 cursor-pointer" />
+              </Link>
+              <Link href="https://www.tiktok.com/@reviewstrategies?is_from_webapp=1&sender_device=pc">
+                <FaTiktok className="w-6 h-6 hover:text-gray-300 cursor-pointer" />
+              </Link>
+              <Link href="mailto:ReviseStrategies@outlook.com">
+                <FaEnvelope className="w-6 h-6 hover:text-gray-300 cursor-pointer" />
+              </Link>
             </div>
           </div>
         </div>
@@ -35,7 +44,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Links "Solutions" */}
+        {/* Links "Soluções" */}
         <div className="space-y-4">
           <h4 className="font-bold">Soluções</h4>
           <ul className="space-y-2">
@@ -54,7 +63,6 @@ export default function Footer() {
             <li><Link href="/policys/payment" className="hover:underline">Política de Pagamento</Link></li>
           </ul>
         </div>
-
       </div>
 
       {/* Parceiros */}
