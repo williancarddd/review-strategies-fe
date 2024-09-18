@@ -1,50 +1,75 @@
-import React, { useState } from 'react';
-import EventList from './event-list';
+import React, { useEffect, useState } from 'react';
 import CalendarFeature from './calendar-feature';
-import { useEvent } from '@/hooks/event-hook';
 import EventModal from '../Event/event-modal';
+import { EventList } from './event-list';
+import { useAuthStore } from '@/stores/auth-store';
+import { useFetchStudyMonth } from '@/hooks/study-hook';
+import { useStudyDayStore } from '@/stores/study-store';
 
 export default function BigCalendar() {
   const [date, setDate] = useState(new Date());
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-  const { events, editEvent, addEvent } = useEvent();
+  const [selectedDate, setSelectedDate] = useState<{
+    userId: string;
+    date: Date;
+  }>({ userId: '', date: new Date() });
+  const { user } = useAuthStore();
+  const { studyDaysMonth } = useStudyDayStore();
+  const fetechDataMonth = useFetchStudyMonth();
 
   const handleNavigate = (newDate: Date) => {
     setDate(newDate);
   };
 
   const handleSelectDate = (date: Date) => {
-    setSelectedDate(date);
-    setModalOpen(true);
+    if (user?.sub) {
+      setSelectedDate({ userId: user.sub, date });
+      setModalOpen(true);
+    } else {
+      // Lidar com o caso em que user ou user.sub é undefined
+      console.warn('Usuário não definido');
+    }
   };
+
+  useEffect(() => {
+    if (user?.sub) {
+      fetechDataMonth.mutate({
+        userId: user.sub,
+        date,
+      });
+    } else {
+      console.warn('Usuário não definido');
+    }
+  }, [date, user, fetechDataMonth]);
+  
 
   return (
     <div className="lg:flex lg:space-x-6 space-y-6 lg:space-y-0 px-4 lg:px-8">
       {/* Calendário Principal */}
       <CalendarFeature
-        events={events}
+        events={studyDaysMonth}
         date={date}
         onDateClick={handleSelectDate}
         onNavigate={handleNavigate}
       />
 
       {/* Listagem de eventos ao lado */}
-      <EventList events={events} />
+      <EventList events={studyDaysMonth} />
 
       {/* Modal de eventos */}
       <EventModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         selectedDate={selectedDate}
-        events={events}
-        onCreateEvent={(newEvent) => {
-          addEvent(newEvent);
-        }}
-        onUpdateEvent={(updatedEvent) => {
-          editEvent("a", updatedEvent);
+        refetch={() => {
+          if (user?.sub) {
+            fetechDataMonth.mutate({ userId: user.sub, date });
+          } else {
+            console.warn('Usuário não definido');
+          }
         }}
       />
+
     </div>
   );
 }

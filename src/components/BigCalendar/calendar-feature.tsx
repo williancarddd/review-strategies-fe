@@ -2,28 +2,32 @@ import React from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import { EventTheme } from '@/interfaces/event';
+import { StudyDay } from '@/schemas/study-schema';
 
 const localizer = momentLocalizer(moment);
 
 interface CalendarFeatureProps {
-  events: EventTheme[];
+  events: StudyDay[];
   date: Date;
   onNavigate: (newDate: Date) => void;
   onDateClick: (date: Date) => void;
 }
 
-export default function CalendarFeature({
-  events,
-  date,
-  onNavigate,
-  onDateClick,
-}: CalendarFeatureProps) {
+export default function CalendarFeature({ events, date, onNavigate, onDateClick }: CalendarFeatureProps) {
+  const mappedEvents = events.map((event) => ({
+    title: event.title,
+    start: new Date(event.studyStart),
+    end: new Date(event.studyEnd!),
+    allDay: false,
+    studyDayId: event.id,
+    status: event.status,
+  }));
+
   return (
     <div className="w-full">
       <Calendar
         localizer={localizer}
-        events={events}
+        events={mappedEvents}
         startAccessor="start"
         endAccessor="end"
         defaultView="month"
@@ -36,9 +40,6 @@ export default function CalendarFeature({
         popup
         showAllEvents
         className="border border-gray-300 rounded-lg"
-        tooltipAccessor={(event: EventTheme) =>
-          `${event.title} - ${moment(event.start).format('HH:mm')}`
-        }
       />
     </div>
   );
