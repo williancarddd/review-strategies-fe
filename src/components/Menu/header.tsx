@@ -3,11 +3,11 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
-import LanguageSelect from './language-select';
 import { Button } from '../ui/button';
 import Link from 'next/link';
 import { useAuthStore } from '@/stores/auth-store'; // Importando o estado de autenticação
 import { useRouter } from 'next/navigation';
+import LocaleSwitcher from '../i18n/LocaleSwitcher';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -47,7 +47,7 @@ export default function Header() {
       {/* Desktop Navigation */}
       <div className="hidden lg:flex items-center space-x-6">
         {/* Language Selector */}
-        <LanguageSelect />
+        <LocaleSwitcher />
 
         {/* Botão de Login/Logout */}
         {isAuthenticated ? (
@@ -66,7 +66,7 @@ export default function Header() {
         <div className="absolute top-16 left-0 w-full bg-background shadow-lg lg:hidden">
           <div className="flex flex-col items-center space-y-4 py-4">
             {/* Language Selector in Mobile */}
-            <LanguageSelect />
+            <LocaleSwitcher />
 
             {/* Botão de Login/Logout no Mobile */}
             {isAuthenticated ? (

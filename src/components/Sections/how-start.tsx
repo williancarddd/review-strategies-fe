@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
 interface StepItemProps {
@@ -26,40 +27,37 @@ const StepItem = ({ imageUrl, imageAlt, title, description, reverse = false }: S
 );
 
 const HowStart = () => {
+  const t = useTranslations('HomePage.HowStart');
+
   return (
     <section className="py-40">
       <div className="max-w-6xl mx-auto text-center space-y-32">
-        <h2 className="text-3xl font-bold">Em 3 passos </ h2>
+        <h2 className="text-3xl font-bold">{t('title')}</h2>
 
         <div className="space-y-12">
-          {/* Imagem à esquerda no desktop, texto abaixo da imagem no mobile */}
+          {/* Step 1 */}
           <StepItem
-            imageUrl="/Miroodles1.svg" 
-            imageAlt="Create icon"
-            title="Você cria sua conta"
-            description="Crie uma conta, se você for estudante do Enem, Concursos ou Vestibulares, ou se você for professor.
-             Os preços são acessíveis, é como você estivesse comprando um lanche no ifood para sua tarde de estudos, também  a plataforma é vitalícia."
-          />
-          
-          {/* Imagem à direita no desktop, texto abaixo da imagem no mobile */}
-          <StepItem
-            imageUrl="/Miroodles2.svg"
-            imageAlt="Host icon"
-            title="Cadastre seus temas"
-            description="Seus temas de estudos são os conteúdos que você deseja estudar, você pode cadastrar quantos temas quiser,
-            o sistema ficará responspável por organizar seus estudos, e você poderá estudar de forma mais eficiente, incluindo as
-            revisões espaçadas."
-            reverse={true} // Inversão para a segunda imagem e texto
+            imageUrl="/Miroodles1.svg"
+            imageAlt={t('step1.title')}
+            title={t('step1.title')}
+            description={t('step1.description')}
           />
 
-          {/* Imagem à esquerda no desktop, texto abaixo da imagem no mobile */}
+          {/* Step 2 */}
+          <StepItem
+            imageUrl="/Miroodles2.svg"
+            imageAlt={t('step2.title')}
+            title={t('step2.title')}
+            description={t('step2.description')}
+            reverse={true}
+          />
+
+          {/* Step 3 */}
           <StepItem
             imageUrl="/Miroodles3.svg"
-            imageAlt="Play icon"
-            title="Você estuda com a plataforma"
-            description="Queremos o melhor desempenho e que você tenha sucesso em seus estudos, por isso, a plataforma foi criada para
-            está o tempo todo ao seu lado com os métodos padrões de 24x7x30 & 24x3x7 & 24x3x15, você sempre sabe quando estudar, porque iremos te avisar por e-mail, whatsapp, telegram, ou qualquer outro meio de comunicação que
-            você preferir, para que você não perca nenhuma revisão."
+            imageAlt={t('step3.title')}
+            title={t('step3.title')}
+            description={t('step3.description')}
           />
         </div>
       </div>

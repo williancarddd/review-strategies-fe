@@ -8,8 +8,11 @@ import HowStart from '@/components/Sections/how-start';
 import Payment from '@/components/Sections/payment';
 import ForgettingCurveSection from '@/components/Sections/forggeting-section';
 import ForgettingCurveExplanation from '@/components/Sections/forggeting-curve-explanation';
+import { useTranslations } from 'next-intl';
 
 export default function Home() {
+  const t = useTranslations('HomePage');
+
   return (
     <div>
       <div>
@@ -17,10 +20,10 @@ export default function Home() {
       </div>
       <main>
         <ImpactSection
-          title="Construa no Review Strategies"
-          subtitle="A melhor maneira de otimizar seus estudos"
-          description="Nossa plataforma ajuda você a melhorar seus estudos com técnicas comprovadas de revisão. "
-          buttonText="EU QUERO"
+          title={t('ImpactSection.title')}
+          subtitle={t('ImpactSection.subtitle')}
+          description={t('ImpactSection.description')}
+          buttonText={t('ImpactSection.buttonText')}
           buttonLink="#payment-section" // Link para a seção de pagamento
           imageUrl="/principal.svg"
           imageAlt="Imagem de um computador com um olho"

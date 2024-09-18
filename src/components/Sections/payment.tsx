@@ -9,71 +9,73 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { CheckCircledIcon } from "@radix-ui/react-icons";
+import { useTranslations } from 'next-intl';
 
 export default function Payment() {
+  const t = useTranslations('HomePage.Payment');
+
   return (
     <section className="py-8 flex justify-center items-center bg-gray-100" id="payment-section">
       <Card className="max-w-sm bg-gray-900 text-white rounded-lg p-6 relative">
         {/* Badge de popularidade */}
         <span className="absolute top-4 right-4 bg-green-500 text-white text-sm px-3 py-1 rounded-full">
-          Mensal
+          {t('badge')}
         </span>
         <CardHeader>
-          <CardTitle className="text-white text-xl font-bold">Pioneiro</CardTitle>
+          <CardTitle className="text-white text-xl font-bold">{t('title')}</CardTitle>
           <CardDescription className="text-gray-400 text-5xl font-bold">
-            R$ 14.90 <span className="text-2xl">/mês</span>
+            {t('price')} <span className="text-2xl">{t('pricePerMonth')}</span>
           </CardDescription>
         </CardHeader>
         <CardContent>
           <p className="text-gray-400 mb-6">
-            Mude sua rotina, mude sua vida, tenha melhores resultados.
-            Aproveite o melhor da nossa plataforma.
+            {t('description')}
           </p>
           <ul className="space-y-2">
             <li className="flex items-center">
               <CheckCircledIcon className="w-5 h-5 text-green-400 mr-2" />
-              Todas as funcionalidades
+              {t('features.feature1')}
             </li>
             <li className="flex items-center">
               <CheckCircledIcon className="w-5 h-5 text-green-400 mr-2" />
-              Inclusão de temas de estudos
+              {t('features.feature2')}
             </li>
             <li className="flex items-center">
               <CheckCircledIcon className="w-5 h-5 text-green-400 mr-2" />
-              Subtópicos de estudo
+              {t('features.feature3')}
             </li>
             <li className="flex items-center">
               <CheckCircledIcon className="w-5 h-5 text-green-400 mr-2" />
-              Notificações por preferência.
+              {t('features.feature4')}
             </li>
             <li className="flex items-center">
               <CheckCircledIcon className="w-5 h-5 text-green-400 mr-2" />
-              Calendário inteligente.
+              {t('features.feature5')}
             </li>
             <li className="flex items-center">
               <CheckCircledIcon className="w-5 h-5 text-green-400 mr-2" />
-              Personalização dos modos de estudo.
+              {t('features.feature6')}
             </li>
             <li className="flex items-center">
               <CheckCircledIcon className="w-5 h-5 text-green-400 mr-2" />
-              Estatísticas de estudo.
+              {t('features.feature7')}
             </li>
             <li className="flex items-center">
               <CheckCircledIcon className="w-5 h-5 text-green-400 mr-2" />
-              Cadastro de matérias e disciplinas.
+              {t('features.feature8')}
             </li>
             <li className="flex items-center">
               <CheckCircledIcon className="w-5 h-5 text-green-400 mr-2" />
-              24x7x30 & 24x3x7 & 24x3x15
+              {t('features.feature9')}
             </li>
           </ul>
         </CardContent>
         <CardFooter className="pt-6">
           <button className="bg-blue-600 text-white w-full py-3 rounded-lg hover:bg-blue-500 transition-colors">
-            QUERO AGORA
+            {t('buttonText')}
           </button>
         </CardFooter>
       </Card>
     </section>
   );
-};
+}
