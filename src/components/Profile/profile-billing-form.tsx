@@ -31,7 +31,7 @@ export function BillingProfileForm() {
         setBillingInformation(data);
       });
     }
-  }, [user, useBilling]);
+  }, [user]);
 
   const handleSubscription = useCallback(() => {
     if (!user || !user.sub) return;
@@ -44,7 +44,7 @@ export function BillingProfileForm() {
         userId: user.sub,
       });
     }
-  }, [user, hasActiveSubscription, router, useCancelSubscription]);
+  }, [user,  router]);
 
   if (!billingInformation) {
     return <div>Carregando informações de pagamento...</div>;
