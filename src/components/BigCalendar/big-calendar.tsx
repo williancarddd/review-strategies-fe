@@ -16,7 +16,7 @@ export default function BigCalendar() {
   const { user } = useAuthStore();
   const { studyDaysMonth } = useStudyDayStore();
   const fetechDataMonth = useFetchStudyMonth();
-
+  
   const handleNavigate = (newDate: Date) => {
     setDate(newDate);
   };
