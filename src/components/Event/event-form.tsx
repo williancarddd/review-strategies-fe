@@ -96,7 +96,7 @@ export function EventForm({
         status: "PENDING",
       });
     }
-  }, [selectedEvent, selectedDate.userId, selectedDate.date, form]);
+  }, [selectedEvent, selectedDate.userId, selectedDate.date]);
 
   const handleFormSubmit = form.handleSubmit(async (data) => {
     if (selectedEvent) {

@@ -45,7 +45,7 @@ export default function EventModal({
     if (fetchDataDay) {
       fetchDataDay.refetch();
     }
-  }, [fetchDataDay, selectedDate]);
+  }, [selectedDate]);
 
   const onSelectStudyDate = (studyDate: StudyDay) => {
     if (studyDate.id) {

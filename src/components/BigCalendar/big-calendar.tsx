@@ -33,14 +33,12 @@ export default function BigCalendar() {
 
   useEffect(() => {
     if (user?.sub) {
-      fetechDataMonth.mutate({
-        userId: user.sub,
-        date,
-      });
+      fetechDataMonth.mutate({ userId: user.sub, date });
     } else {
+      // Lidar com o caso em que user ou user.sub é undefined
       console.warn('Usuário não definido');
     }
-  }, [date, user, fetechDataMonth]);
+  }, [date, user]);
   
 
   return (
