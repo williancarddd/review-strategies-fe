@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { createCheckouSection, checkIfHasActiveSubscription } from '@/services/stripe-service';
+import { createCheckouSection, checkIfHasActiveSubscription, cancelSubscription, getBillingInformation } from '@/services/stripe-service';
 import { useRouter } from 'next/navigation';
 import { useNotification } from '@/components/Notification/notification-provider';
 
@@ -10,7 +10,6 @@ interface PaymentParams {
 export function usePayment() {
   const router = useRouter();
   const { notify } = useNotification();
-  const queryClient = useQueryClient();
 
   // Mutação para criação de uma sessão de checkout
   const createCheckout = useMutation({
@@ -27,6 +26,7 @@ export function usePayment() {
     },
     onError: () => {
       notify("destructive", "Erro", "Falha ao criar a sessão de pagamento.");
+      router.push('/'); // Redireciona para a página inicial em caso de erro  
     },
   });
 
@@ -55,4 +55,38 @@ export function usePayment() {
     createCheckout,
     checkSubscription, // Exponha essa mutação para uso no componente
   };
+}
+
+
+export function useCancelSubscriptionUser() {
+  const { notify } = useNotification();
+
+  return useMutation({
+    mutationFn: async ({ userId }: {
+      userId: string;
+    }) => {
+      return await cancelSubscription(userId);
+    },
+    onSuccess: () => {
+      notify("default", "Sucesso", "Assinatura cancelada com sucesso.");
+    },
+    onError: () => {
+      notify("destructive", "Erro", "Falha ao cancelar assinatura.");
+    },
+  });
+}
+
+export function useGetBillingInformationUser() {
+  const { notify } = useNotification();
+
+  return useMutation({
+    mutationFn: async ({ userId }: {
+      userId: string;
+    }) => {
+      return await getBillingInformation(userId);
+    },
+    onError: () => {
+      notify("destructive", "Erro", "Erro ao carregar informações de pagamento.");
+    },
+  });
 }
