@@ -8,7 +8,6 @@ import Link from 'next/link';
 import { useAuthStore } from '@/stores/auth-store'; // Importando o estado de autenticação
 import { useRouter } from 'next/navigation';
 import LocaleSwitcher from '../i18n/LocaleSwitcher';
-import LanguageSelect from './language-select';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -39,7 +38,7 @@ export default function Header() {
         <Link href="/" className="hover:text-gray-300">
           Sobre Nós
         </Link>
-        <LanguageSelect />
+        <LocaleSwitcher />
         <Button className="ml-4" onClick={handleScreenLogin}>
           {isAuthenticated ? 'Logout' : 'Login'}
         </Button>
@@ -60,6 +59,7 @@ export default function Header() {
       {menuOpen && (
         <div className="absolute top-16 left-0 w-full bg-background shadow-lg lg:hidden">
           <div className="flex flex-col items-center space-y-4 py-4">
+
             <Link href="/" className="w-full text-center py-2 hover:bg-gray-200">
               Sobre Nós
             </Link>
