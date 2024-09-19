@@ -1,0 +1,133 @@
+{
+    "HomePage": {
+        "ImpactSection": {
+            "title": "Build with Review Strategies",
+            "subtitle": "The best way to optimize your studies",
+            "description": "Our platform helps you improve your studies with proven revision techniques.",
+            "buttonText": "I WANT IT"
+        },
+        "ForgettingCurveSection": {
+            "title": "Do you forget after studying something? 🤔",
+            "gifAlt": "Forgetting Curve GIF",
+            "paragraph1": "Who hasn’t forgotten something they studied the week before? Be honest!",
+            "paragraph2": {
+                "txt1": "Have you ever heard of",
+                "txt2": "Ebbinghaus' Forgetting Curve",
+                "txt3": "? No? (or have you already forgotten? haha)"
+            },
+            "paragraph3": "Before you get scared by that name, know that it affects everyone! This means that while you're reading this post, you're already forgetting something you studied."
+        },
+        "ForgettingCurveExplanation": {
+            "title": "How do I not forget? 🤔",
+            "paragraph1": {
+                "txt1": "The good news 🎉 is that if you understand this theory better and get organized, you can stay focused and",
+                "txt2": "not forget",
+                "txt3": "what’s important!"
+            },
+            "paragraph2": {
+                "txt1": "In 1885, German psychologist",
+                "txt2": "Hermann Ebbinghaus",
+                "txt3": "introduced his famous theory of the",
+                "txt4": "Forgetting Curve",
+                "txt5": "📉, which graphically shows how much information our brain retains over time."
+            },
+            "graphAlt": "Forgetting Curve Graph",
+            "paragraph3": {
+                "txt1": "Our platform follows",
+                "txt2": "Ebbinghaus",
+                "txt3": "’ theory! 🧠 It plans your",
+                "txt4": "study schedule",
+                "txt5": "based on revisions, so you won’t forget anything! 🚀"
+            },
+            "paragraph4": {
+                "txt1": "For example, after studying",
+                "txt2": "MATH",
+                "txt3": ", you should do a",
+                "txt4": "review",
+                "txt5": "right after studying, another 24 hours later, one more after 7 days, and finally another after 30 days. We ensure you stick to this schedule! 📅✅"
+            }
+        },
+        "HowToWork": {
+            "title": "How It Works",
+            "feature1": {
+                "title": "You Gain Performance",
+                "description": "You visualize your study plan, which is made according to your time availability and your needs."
+            },
+            "feature2": {
+                "title": "You Gain Precision",
+                "description": "Using Hermann Ebbinghaus' technique, you can review the content at the right time, avoiding the forgetting curve."
+            },
+            "feature3": {
+                "title": "Track Your Progress",
+                "description": "Track your progress and see how you're improving in your studies."
+            },
+            "feature4": {
+                "title": "Get Immediate Results",
+                "description": "The results come quickly, as your time and calendar are already organized based on the most efficient study techniques."
+            },
+            "buttonText": "Start now"
+        },
+        "HowStart": {
+            "title": "In 3 steps",
+            "step1": {
+                "title": "Create your account",
+                "description": "Create an account if you are an Enem, Contest, or College student, or if you are a teacher. The prices are affordable, like buying a snack on iFood for your study afternoon, and the platform is lifetime access."
+            },
+            "step2": {
+                "title": "Register your study topics",
+                "description": "Your study topics are the contents you want to study. You can register as many topics as you want. The system will organize your studies, and you can study more efficiently, including spaced revisions."
+            },
+            "step3": {
+                "title": "Study with the platform",
+                "description": "We want you to perform at your best and succeed in your studies. That’s why the platform is designed to be with you all the time, using standard methods like 24x7x30 & 24x3x7 & 24x3x15. You always know when to study because we will notify you by email, WhatsApp, Telegram, or any other communication method you prefer, so you don't miss any revision."
+            }
+        },
+        "Payment": {
+            "title": "Pioneer",
+            "description": "Change your routine, change your life, achieve better results. Enjoy the best of our platform.",
+            "price": "$2.73",
+            "pricePerMonth": "/month",
+            "badge": "Monthly",
+            "features": {
+                "feature1": "All features",
+                "feature2": "Add study topics",
+                "feature3": "Study subtopics",
+                "feature4": "Notifications by preference.",
+                "feature5": "Smart calendar.",
+                "feature6": "Study modes customization.",
+                "feature7": "Study statistics.",
+                "feature8": "Subject and discipline registration.",
+                "feature9": "24x7x30 & 24x3x7 & 24x3x15"
+            },
+            "buttonText": "I WANT IT NOW"
+        },
+        "Footer": {
+            "socialLinks": {
+                "linkedin": "LinkedIn",
+                "instagram": "Instagram",
+                "tiktok": "TikTok"
+            },
+            "seeMore": "See more",
+            "about": {
+                "title": "About",
+                "whoWeAre": "Who we are?",
+                "prices": "Prices"
+            },
+            "solutions": {
+                "title": "Solutions",
+                "performance": "You Gain Performance",
+                "precision": "You Gain Precision",
+                "progress": "Track Your Progress",
+                "immediateResults": "Get Immediate Results"
+            },
+            "terms": {
+                "title": "Terms and Conditions",
+                "privacyPolicy": "Privacy Policy",
+                "paymentPolicy": "Payment Policy"
+            },
+            "partners": "Partners",
+            "poweredBy": "Powered by Stripe",
+            "copyright": "Copyright © 2020, Review Strategies. All rights reserved."
+        }
+    }
+}

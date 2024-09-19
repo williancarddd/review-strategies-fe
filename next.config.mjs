@@ -1,7 +1,10 @@
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin();
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-
-  // cors
+  // Configuração CORS
   async headers() {
     return [
       {
@@ -25,4 +28,5 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+// Exportando com suporte a next-intl
+export default withNextIntl(nextConfig);
