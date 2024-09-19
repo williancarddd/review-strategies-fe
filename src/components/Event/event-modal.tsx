@@ -89,9 +89,6 @@ export default function EventModal({
           )}
           <EventList events={studyDaysDay} onSelectEvent={onSelectStudyDate} />
         </div>
-        <AlertDialogFooter>
-          <AlertDialogCancel onClick={onCloseModal}>Fechar</AlertDialogCancel>
-        </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
   );

@@ -1,47 +1,35 @@
 "use client";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { Input } from "@/components/ui/input";
 import {
   Form,
-  FormControl,
   FormField,
+  FormControl,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
-import { useEffect } from "react";
-import {
-  StudyDay,
-  CreateStudyDayDto,
-  UpdateStudyDaySchema,
-  UpdateStudyDayDto,
-} from "@/schemas/study-schema";
+import { Input } from "@/components/ui/input";
+import DateTimePicker from "react-datetime-picker";
 import {
   Select,
-  SelectContent,
-  SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../ui/select";
-import { Button } from "../ui/button";
-import {
-  useCreateStudyDay,
-  useUpdateStudyDay,
-} from "@/hooks/study-hook";
-import DateTimePicker from "react-datetime-picker";
+  SelectContent,
+  SelectItem,
+} from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
+import dynamic from "next/dynamic";
+import { translateStatus } from "@/utils/translate-status";
+import "react-quill/dist/quill.snow.css";
 import "react-datetime-picker/dist/DateTimePicker.css";
 import "react-calendar/dist/Calendar.css";
 import "react-clock/dist/Clock.css";
-import { translateStatus } from "@/utils/translate-status";
+import { StudyDay } from "@/schemas/study-schema";
+import { useEventForm } from "@/hooks/use-event-form";
 
-// Define a type for an existing StudyDay with a required id
-type ExistingStudyDay = Omit<StudyDay, 'id'> & { id: string };
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 interface EventFormProps {
-  selectedEvent: ExistingStudyDay | null;
+  selectedEvent: StudyDay | null;
   selectedDate: {
     userId: string;
     date: Date;
@@ -63,73 +51,15 @@ export function EventForm({
   onClose,
   selectedDate,
 }: EventFormProps) {
-  const createStudyDay = useCreateStudyDay();
-  const updateStudyDay = useUpdateStudyDay();
-
-  const form = useForm({
-    resolver: zodResolver(UpdateStudyDaySchema),
-    defaultValues: {
-      userId: selectedDate.userId,
-      title: "",
-      studyStart: new Date(selectedDate.date),
-      mode: "24x7x30",
-      description: "",
-      color: "#000000",
-      status: "PENDING",
-    },
+  const { form, handleFormSubmit, clearForm } = useEventForm({
+    onClose,
+    selectedDate,
+    selectedEvent,
   });
-
-  useEffect(() => {
-    if (selectedEvent) {
-      form.reset({
-        ...selectedEvent,
-        studyStart: new Date(selectedEvent.studyStart),
-      });
-    } else {
-      form.reset({
-        userId: selectedDate.userId,
-        title: "",
-        studyStart: new Date(selectedDate.date),
-        mode: "24x7x30",
-        description: "",
-        color: "#000000",
-        status: "PENDING",
-      });
-    }
-  }, [selectedEvent, selectedDate.userId, selectedDate.date]);
-
-  const handleFormSubmit = form.handleSubmit(async (data) => {
-    if (selectedEvent) {
-      await updateStudyDay.mutateAsync({
-        id: selectedEvent.id,
-        data: data as UpdateStudyDayDto,
-      });
-    } else {
-      await createStudyDay.mutateAsync({
-        ...data,
-        userId: selectedDate.userId,
-      } as CreateStudyDayDto);
-    }
-    clearForm();
-    onClose(); // Close modal on success
-  });
-
-  const clearForm = () => {
-    form.reset({
-      userId: selectedDate.userId,
-      title: "",
-      studyStart: new Date(selectedDate.date),
-      mode: "24x7x30",
-      description: "",
-      color: "#000000",
-      status: "PENDING",
-    });
-  };
-
   return (
     <Form {...form}>
-      <form onSubmit={handleFormSubmit} className="flex flex-col gap-6">
-        {/* Title Field */}
+      <form onSubmit={handleFormSubmit} className="grid grid-cols-1 gap-6">
+        {/* Campo de Título */}
         <FormField
           control={form.control}
           name="title"
@@ -148,9 +78,9 @@ export function EventForm({
           )}
         />
 
-        {/* Date and Mode Fields */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {/* Date Field */}
+        {/* Campos de Data e Modo */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {/* Campo de Data */}
           <FormField
             control={form.control}
             name="studyStart"
@@ -170,18 +100,18 @@ export function EventForm({
             )}
           />
 
-          {/* Mode Field */}
+          {/* Campo de Modo */}
           <FormField
             control={form.control}
             name="mode"
             render={({ field }) => (
-              <FormItem className="w-full">
+              <FormItem className="w-full  ">
                 <FormLabel className="text-gray-700">Modo de Revisão</FormLabel>
                 <FormControl>
                   <Select value={field.value} onValueChange={field.onChange}>
                     <SelectTrigger className="w-full border-gray-300 focus:border-blue-500 focus:ring-blue-500 rounded-md">
-                      <SelectValue>
-                        {field.value || "Selecionar modo de revisão"}
+                      <SelectValue placeholder="Selecionar modo de revisão">
+                        {field.value}
                       </SelectValue>
                     </SelectTrigger>
                     <SelectContent>
@@ -196,7 +126,8 @@ export function EventForm({
             )}
           />
         </div>
-        {/* Color Picker */}
+
+        {/* Seletor de Cor */}
         <FormField
           control={form.control}
           name="color"
@@ -206,18 +137,16 @@ export function EventForm({
               <FormControl>
                 <div className="flex space-x-2">
                   {COLORS.map((color) => (
-                    <button // autofill when have selected selectedEvent
+                    <button
                       key={color}
                       type="button"
+                      defaultValue={color}
                       onClick={() => field.onChange(color)}
-                      className={`w-8 h-8 rounded-full border-2 border-white focus:outline-none ${
-                        field.value === color
-                          ? "border-blue-500"
+                      className={`w-8 h-8 rounded-full border-4 focus:outline-none ${field.value === color
+                          ? "border-black border-opacity-50"
                           : "border-transparent"
-                      }`}
+                        }`}
                       style={{ backgroundColor: color }}
-                      
-                      
                     />
                   ))}
                 </div>
@@ -227,7 +156,7 @@ export function EventForm({
           )}
         />
 
-        {/* Status */}
+        {/* Campo de Status */}
         <FormField
           control={form.control}
           name="status"
@@ -237,8 +166,8 @@ export function EventForm({
               <FormControl>
                 <Select value={field.value} onValueChange={field.onChange}>
                   <SelectTrigger className="w-full border-gray-300 focus:border-blue-500 focus:ring-blue-500 rounded-md">
-                    <SelectValue>
-                      {translateStatus(field.value!) || "Selecionar status"}
+                    <SelectValue placeholder="Selecionar status">
+                      {translateStatus(field.value) || "Selecionar status"}
                     </SelectValue>
                   </SelectTrigger>
                   <SelectContent>
@@ -252,7 +181,8 @@ export function EventForm({
             </FormItem>
           )}
         />
-        {/* Description Field */}
+
+        {/* Campo de Descrição */}
         <FormField
           control={form.control}
           name="description"
@@ -280,25 +210,15 @@ export function EventForm({
           )}
         />
 
-        {/* Buttons */}
+        {/* Botões */}
         <div className="mt-6 flex justify-end space-x-4">
-          <Button
-            variant="ghost"
-            onClick={clearForm}
-          >
+          <Button variant="ghost" onClick={clearForm}>
             Limpar
           </Button>
-          <Button
-            variant="ghost"
-            onClick={onClose}
-          >
+          <Button variant="ghost" onClick={onClose}>
             Cancelar
           </Button>
-          <Button
-            type="submit"
-          >
-            {selectedEvent ? "Atualizar" : "Criar"}
-          </Button>
+          <Button type="submit">{selectedEvent ? "Atualizar" : "Criar"}</Button>
         </div>
       </form>
     </Form>
