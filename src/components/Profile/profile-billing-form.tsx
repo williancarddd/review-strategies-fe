@@ -13,7 +13,7 @@ import { useAuthStore } from "@/stores/auth-store";
 import { format } from 'date-fns';
 import { useCallback, useEffect, useState } from "react";
 import { Button } from "../ui/button";
-import {useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 export function BillingProfileForm() {
   const { user } = useAuthStore();
   const useBilling = useGetBillingInformationUser();
@@ -21,28 +21,30 @@ export function BillingProfileForm() {
   const [billingInformation, setBillingInformation] = useState<BillingInformation | null>(null);
   const hasActiveSubscription = billingInformation?.stripeSubscription.status === 'active';
   const router = useRouter();
+
+
   useEffect(() => {
-    if (user) {
+    if (user?.sub) {
       useBilling.mutateAsync({
-        userId: user?.sub!,
+        userId: user.sub,
       }).then((data) => {
         setBillingInformation(data);
       });
     }
-  }, [user]);
+  }, [user, useBilling]);
 
   const handleSubscription = useCallback(() => {
-    if (!user) return
+    if (!user || !user.sub) return;
     if (!hasActiveSubscription) {
       return router.push('/billing/checkout');
     }
     const isCancelled = confirm('Você tem certeza que deseja cancelar sua assinatura?');
-    if (isCancelled && user) {
+    if (isCancelled) {
       useCancelSubscription.mutateAsync({
-        userId: user.sub!
+        userId: user.sub,
       });
     }
-  }, [user]);
+  }, [user, hasActiveSubscription, router, useCancelSubscription]);
 
   if (!billingInformation) {
     return <div>Carregando informações de pagamento...</div>;
@@ -58,7 +60,7 @@ export function BillingProfileForm() {
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          
+
           {/* Informações da Assinatura */}
           <div className="p-4 border rounded-lg shadow-sm bg-white">
             <h3 className="font-semibold text-lg mb-2">Assinatura</h3>
