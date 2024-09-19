@@ -27,11 +27,9 @@ export function ProfileForm() {
       language: user?.language || 'pt-br',
     },
   });
-  // show erros
-  console.log(form.formState.errors);
   const onSubmit = async (data: ProfileUpdateDto) => {
     const { confirmPassword, ...userData } = data; // Remover confirmação de senha antes de enviar
-    console.log(userData);
+   
     await mutateAsync({ id: user?.id || '', data: userData });
   };
 

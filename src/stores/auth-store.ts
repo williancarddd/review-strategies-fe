@@ -29,7 +29,7 @@ export const useAuthStore = create<AuthState>()(
       login: async (email: string, password: string) => {
         try {
           const data = await loginUser(email, password); // Chama o serviço de login
-          console.log(data);
+         
           set({ user: data, isAuthenticated: true });
           localStorage.setItem('auth-token', data.access_token); // Armazena o token
         } catch (error) {

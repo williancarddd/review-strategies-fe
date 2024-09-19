@@ -60,7 +60,7 @@ export default function PrivacyPolicySection() {
         </p>
 
         <p className="mb-4">
-          Se você tiver alguma dúvida sobre nossa Política de Privacidade, entre em contato conosco pelo email: <a href="mailto:contato@reviewstrategies.com" className="text-blue-600 hover:underline">contato@reviewstrategies.com</a>.
+          Se você tiver alguma dúvida sobre nossa Política de Privacidade, entre em contato conosco pelo email: <a href="mailto:ReviseStrategies@outlook.com" className="text-blue-600 hover:underline">ReviseStrategies@outlook.com</a>.
         </p>
       </div>
       <Link href="/" className="block text-center text-blue-600 hover:underline mt-8">

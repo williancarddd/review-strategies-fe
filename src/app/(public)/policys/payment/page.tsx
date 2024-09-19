@@ -19,7 +19,7 @@ export default function PaymentPolicySection() {
 
         <h2 className="text-2xl font-semibold mb-4">2. Resolução de Problemas e Suporte</h2>
         <p className="mb-4">
-          Caso você encontre alguma funcionalidade que não esteja funcionando conforme esperado ou não esteja disponível, pedimos que entre em contato com nosso suporte através do email: <a href="mailto:support@reviewstrategies.com" className="text-blue-600 hover:underline">support@reviewstrategies.com</a>.
+          Caso você encontre alguma funcionalidade que não esteja funcionando conforme esperado ou não esteja disponível, pedimos que entre em contato com nosso suporte através do email: <a href="mailto:ReviseStrategies@outlook.com" className="text-blue-600 hover:underline">ReviseStrategies@outlook.com</a>.
         </p>
         <p className="mb-4">
           Nos comprometemos a analisar e corrigir qualquer problema relatado no prazo de <strong>2 semanas</strong> após o contato, dependendo da complexidade da funcionalidade e do problema relatado.
@@ -48,7 +48,7 @@ export default function PaymentPolicySection() {
         </p>
 
         <p className="mt-6">
-          Entre em contato conosco para mais informações: <a href="mailto:support@reviewstrategies.com" className="text-blue-600 hover:underline">support@reviewstrategies.com</a>.
+          Entre em contato conosco para mais informações: <a href="mailto:ReviseStrategies@outlook.com" className="text-blue-600 hover:underline">ReviseStrategies@outlook.com</a>.
         </p>
       </div>
       <Link href="/" className="block text-center text-blue-600 hover:underline mt-8">

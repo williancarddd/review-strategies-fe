@@ -4,7 +4,7 @@ import { addDays } from 'date-fns';
 let events: EventTheme[] = [];
 
 export const getEvents = async (id:string): Promise<EventTheme[]> => {
-  console.log(id);
+
   const events: EventTheme[] = [
     {
       title: 'Ditadura Militar (História)',

@@ -6,8 +6,7 @@ export default function LanguageSelect() {
 
   const handleLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setLanguage(event.target.value);
-    // Lógica para mudança de idioma
-    console.log(`Idioma alterado para: ${event.target.value}`);
+   
   };
 
   return (
