@@ -24,6 +24,9 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     <html lang={locale} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" sizes='32x32' />
+        <script async src="https://cse.google.com/cse.js?cx=94eaf30ef318544e0">
+        </script>
+        <div className="gcse-search"></div>
       </head>
       <body
         className={cn(
