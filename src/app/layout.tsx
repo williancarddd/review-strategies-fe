@@ -7,6 +7,7 @@ import { Provider } from '@/providers/provider';
 import { NotificationProvider } from '@/components/Notification/notification-provider';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
+import Script from 'next/script';
 
 interface RootLayoutProps {
   children: ReactNode;
@@ -41,6 +42,22 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           </Provider>
         </NextIntlClientProvider>
         <Analytics />
+        {/* Carrega a biblioteca gtag.js de forma assíncrona */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-16709252957"
+          strategy="afterInteractive"
+        />
+
+        {/* Configura o Google Tag */}
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'AW-16709252957');
+        `}
+        </Script>
       </body>
     </html>
   );
