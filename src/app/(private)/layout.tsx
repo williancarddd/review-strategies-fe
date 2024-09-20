@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import Header from '@/components/Menu/header';
 import { useAuthStore } from '@/stores/auth-store';
 import { cn } from '@/lib/utils';
-import { vibur, montserrat, poppins } from '@/lib/fonts';  // Importar fontes centralizadas
+import { vibur, montserrat, poppins } from '@/lib/fonts'; 
 import MenuClient from '@/components/MenuClient/menu-client';
 
 interface PrivateLayoutProps {
@@ -52,10 +52,10 @@ export default function PrivateLayout({ children }: PrivateLayoutProps) {
   return (
     <div className={cn('min-h-screen bg-background font-sans antialiased', vibur.variable, montserrat.variable, poppins.variable)}>
       <div className="h-screen flex flex-col">
-        <Header />
-        <div className="flex flex-1">
+  
+        <div className="flex flex-1 lg:justify-center  lg:items-center md:justify-start md:items-start">
           <MenuClient />
-          <main className="flex-1 bg-white p-4 lg:p-8">{children}</main>
+          <main className="flex-1 bg-white">{children}</main>
         </div>
       </div>
     </div>
