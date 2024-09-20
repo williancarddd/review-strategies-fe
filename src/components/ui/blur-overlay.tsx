@@ -20,7 +20,7 @@ export default function BlurOverlay({ children, message }: BlurOverlayProps) {
         setHasSubscription(getHasSub.data?.hasActiveSubscription || false);
       });
     }
-  }, [getHasSub, user]);
+  }, [router, user]);
 
   return (
     <div className="w-full relative">
