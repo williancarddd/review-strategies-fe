@@ -17,12 +17,6 @@ const PomodoroApp = () => {
   const [pomodoroCount, setPomodoroCount] = useState(0);
   const [settingsOpen, setSettingsOpen] = useState(false);
 
-  useEffect(() => {
-    if (Notification.permission !== 'granted') {
-      Notification.requestPermission();
-    }
-  }, []);
-
   const handleComplete = () => {
     if (mode === 'Pomodoro') {
       setPomodoroCount((prev) => prev + 1);

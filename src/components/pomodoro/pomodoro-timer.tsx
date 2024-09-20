@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
@@ -9,14 +8,16 @@ import { ProgressBar } from '../ui/progress-bar';
 import { Button } from '../ui/button';
 import { MODE_DURATIONS, PomodoroMode } from '@/utils/constants';
 
+// Importando o som de forma estática
+// @
+import alarmSound from '@/assets/alarm.mp3';
+
 interface PomodoroTimerProps {
   mode: PomodoroMode;
   onComplete: () => void;
 }
 
 const PomodoroTimer: React.FC<PomodoroTimerProps> = ({ mode, onComplete }) => {
-  const alarmSound = require('@/assets/alarm.mp3');
-
   const initialSeconds = MODE_DURATIONS[mode];
   const [secondsLeft, setSecondsLeft] = useState(initialSeconds);
   const [isRunning, setIsRunning] = useState(false);
