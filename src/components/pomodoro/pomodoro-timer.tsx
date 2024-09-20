@@ -1,21 +1,57 @@
-'use client' ;
-import { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
 
-const PomodoroTimer = () => {
-  const [secondsLeft, setSecondsLeft] = useState(1500); // 25 min
+'use client';
+
+import { useState, useEffect, useRef } from 'react';
+import { FaPlay, FaPause, FaRedo } from 'react-icons/fa';
+import { toast } from 'react-toastify';
+import useSound from 'use-sound';
+import { ProgressBar } from '../ui/progress-bar';
+import { Button } from '../ui/button';
+import { MODE_DURATIONS, PomodoroMode } from '@/utils/constants';
+
+interface PomodoroTimerProps {
+  mode: PomodoroMode;
+  onComplete: () => void;
+}
+
+const PomodoroTimer: React.FC<PomodoroTimerProps> = ({ mode, onComplete }) => {
+  const alarmSound = require('@/assets/alarm.mp3');
+
+  const initialSeconds = MODE_DURATIONS[mode];
+  const [secondsLeft, setSecondsLeft] = useState(initialSeconds);
   const [isRunning, setIsRunning] = useState(false);
+  const [play] = useSound(alarmSound, { volume: 0.5 });
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    let timer: NodeJS.Timeout;
+    setSecondsLeft(MODE_DURATIONS[mode]);
+    setIsRunning(false);
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+  }, [mode]);
+
+  useEffect(() => {
     if (isRunning) {
-      timer = setInterval(() => {
-        setSecondsLeft((prev) => prev > 0 ? prev - 1 : 0);
+      intervalRef.current = setInterval(() => {
+        setSecondsLeft((prev: number) => {
+          if (prev > 0) return prev - 1;
+          else {
+            clearInterval(intervalRef.current!);
+            setIsRunning(false);
+            play();
+            toast.info(`${mode} finalizado!`);
+            onComplete();
+            return 0;
+          }
+        });
       }, 1000);
     }
 
-    return () => clearInterval(timer);
-  }, [isRunning]);
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [isRunning, mode, play, onComplete]);
 
   const startPauseTimer = () => {
     setIsRunning(!isRunning);
@@ -23,7 +59,7 @@ const PomodoroTimer = () => {
 
   const resetTimer = () => {
     setIsRunning(false);
-    setSecondsLeft(1500); // Reseta para 25 min
+    setSecondsLeft(MODE_DURATIONS[mode]);
   };
 
   const formatTime = (seconds: number) => {
@@ -32,13 +68,20 @@ const PomodoroTimer = () => {
     return `${minutes.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
   };
 
+  const progress = ((MODE_DURATIONS[mode] - secondsLeft) / MODE_DURATIONS[mode]) * 100;
+
   return (
     <div className="text-center my-4">
-      <h1 className="text-5xl font-bold">{formatTime(secondsLeft)}</h1>
-      <Button onClick={startPauseTimer} className="mt-4">
-        {isRunning ? 'Pause' : 'Start'}
-      </Button>
-      <Button onClick={resetTimer} className="mt-4 ml-2">Reset</Button>
+      <h1 className="text-5xl font-bold mb-4">{formatTime(secondsLeft)}</h1>
+      <ProgressBar value={progress} />
+      <div className="flex justify-center mt-4">
+        <Button onClick={startPauseTimer} className="mr-2 flex items-center">
+          {isRunning ? <FaPause className="mr-1" /> : <FaPlay className="mr-1" />} {isRunning ? 'Pausar' : 'Iniciar'}
+        </Button>
+        <Button onClick={resetTimer} variant="ghost" className="flex items-center">
+          <FaRedo className="mr-1" /> Resetar
+        </Button>
+      </div>
     </div>
   );
 };
