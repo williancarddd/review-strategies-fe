@@ -6,8 +6,12 @@ import { Input } from "@/components/ui/input";
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
 import { useAuth } from "@/hooks/auth-hook";
 import { LoginSchema, LoginDto } from "@/schemas/login-schema";
+import { useSearchParams } from 'next/navigation';
 
 export function LoginForm() {
+  const searchParams = useSearchParams();
+  const isCheckout = searchParams.get("checkout") === "true"; 
+
   const { mutateAsync, isPending } = useAuth();
   const form = useForm<LoginDto>({
     resolver: zodResolver(LoginSchema),
@@ -18,7 +22,10 @@ export function LoginForm() {
   });
 
   const onSubmit = async (data: LoginDto) => {
-    await mutateAsync(data);
+    await mutateAsync({
+      ...data,
+      checkoutSession: isCheckout, // se página de login vir de uma tentativa de checkout.
+    });
   };
 
   return (

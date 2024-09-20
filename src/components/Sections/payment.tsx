@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/card";
 import { CheckCircledIcon } from "@radix-ui/react-icons";
 import { useTranslations } from 'next-intl';
+import Link from "next/link";
+import { Button } from "../ui/button";
 
 export default function Payment() {
   const t = useTranslations('HomePage.Payment');
@@ -71,9 +73,11 @@ export default function Payment() {
           </ul>
         </CardContent>
         <CardFooter className="pt-6">
-          <button className="bg-blue-600 text-white w-full py-3 rounded-lg hover:bg-blue-500 transition-colors">
-            {t('buttonText')}
-          </button>
+          <Link href="/login?checkout=true">
+            <Button className="bg-blue-600 text-white w-full py-3 rounded-lg hover:bg-blue-500 transition-colors">
+              {t('buttonText')}
+            </Button>
+          </Link>
         </CardFooter>
       </Card>
     </section>

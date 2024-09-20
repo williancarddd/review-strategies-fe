@@ -63,7 +63,6 @@ export const useStudyDayStore = create<StudyDayState>()(
         set({ error: error.message, loading: false });
       }
     },
-    
     // Busca StudyDay por ID
     findStudyDay: async (id) => {
       set({ loading: true, error: null });
@@ -77,7 +76,6 @@ export const useStudyDayStore = create<StudyDayState>()(
         return null;
       }
     },
-
     // Deletar StudyDay
     deleteStudyDay: async (id) => {
       set({ loading: true, error: null });

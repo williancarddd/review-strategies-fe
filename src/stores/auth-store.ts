@@ -12,7 +12,7 @@ interface AuthState {
   user: User | null;
   isAuthenticated: boolean;
   setUser: (user: User, token: string) => void;
-  login: (email: string, password: string) => Promise<void>;
+  login: (email: string, password: string) => Promise<User>;
   getUser: () => void;
   logout: () => void;
 }
@@ -28,10 +28,11 @@ export const useAuthStore = create<AuthState>()(
       },
       login: async (email: string, password: string) => {
         try {
-          const data = await loginUser(email, password); // Chama o serviço de login
+          const data: User = await loginUser(email, password); // Chama o serviço de login
          
           set({ user: data, isAuthenticated: true });
           localStorage.setItem('auth-token', data.access_token); // Armazena o token
+          return data;
         } catch (error) {
           throw new Error('Login falhou');
         }

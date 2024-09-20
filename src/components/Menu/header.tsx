@@ -38,7 +38,7 @@ export default function Header() {
         <Link href="/" className="hover:text-gray-300">
           Sobre Nós
         </Link>
-        <LanguageSelect />
+        <LocaleSwitcher />
         <Button className="ml-4" onClick={handleScreenLogin}>
           {isAuthenticated ? 'Logout' : 'Login'}
         </Button>
@@ -55,59 +55,18 @@ export default function Header() {
         </Button>
       </div>
 
-<<<<<<< DEV
-      {/* Desktop Navigation */}
-      <div className="hidden lg:flex items-center space-x-6">
-        {/* Language Selector */}
-        <LocaleSwitcher />
-
-        {/* Botão de Login/Logout */}
-        {isAuthenticated ? (
-          <Button variant="default" onClick={handleLogout}>
-            Logout
-          </Button>
-        ) : (
-          <Link href="/login">
-            <Button variant="default">Entrar</Button>
-          </Link>
-        )}
-      </div>
-
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="absolute top-16 left-0 w-full bg-background shadow-lg lg:hidden">
           <div className="flex flex-col items-center space-y-4 py-4">
-            {/* Language Selector in Mobile */}
-            <LocaleSwitcher />
 
-            {/* Botão de Login/Logout no Mobile */}
-            {isAuthenticated ? (
-              <Button
-                className="bg-primary text-primary-foreground px-4 py-2 rounded-lg text-lg font-semibold hover:bg-primary/90"
-                onClick={handleLogout}
-              >
-                Logout
-              </Button>
-            ) : (
-              <Link href="/login">
-                <Button className="bg-primary text-primary-foreground px-4 py-2 rounded-lg text-lg font-semibold hover:bg-primary/90">
-                  Entrar
-                </Button>
-              </Link>
-            )}
-=======
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="absolute top-16 left-0 w-full bg-background shadow-lg lg:hidden z-50">
-          <div className="flex flex-col items-center space-y-4 py-4 bg-white">
             <Link href="/" className="w-full text-center py-2 hover:bg-gray-200">
               Sobre Nós
             </Link>
-            <LanguageSelect />
+            <LocaleSwitcher />
             <Button className="bg-primary text-primary-foreground px-4 py-2 rounded-lg text-lg font-semibold hover:bg-primary/90" onClick={handleScreenLogin}>
               {isAuthenticated ? 'Logout' : 'Login'}
             </Button>
->>>>>>> main
           </div>
         </div>
       )}
