@@ -27,13 +27,14 @@ export default function Payment() {
           <CardTitle className="text-white text-xl font-bold">{t('title')}</CardTitle>
           <CardDescription className="text-gray-400 text-5xl font-bold flex items-center">
             {/* Preço original riscado */}
-            <span className="text-2xl line-through text-red-500 mr-2">R$15.80</span>
+            <span className="text-2xl line-through text-red-500 mr-2">{t('price')}</span>
             {/* Preço com desconto */}
-            <span className="text-white">7.90</span> 
+            <span className="text-white">{t('oldPrice')}</span>
             <span className="text-2xl ml-2">{t('pricePerMonth')}</span>
           </CardDescription>
          
         </CardHeader>
+
         <CardContent>
           <p className="text-gray-400 mb-6">
             {t('description')}

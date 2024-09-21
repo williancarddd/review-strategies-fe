@@ -85,7 +85,8 @@
         "Payment": {
             "title": "Pioneiro",
             "description": "Mude sua rotina, mude sua vida, tenha melhores resultados. Aproveite o melhor da nossa plataforma.",
-            "price": "R$ 14.90",
+            "price": "R$ 7.90",
+            "oldPrice": "R$ 14.90",
             "pricePerMonth": "/mês",
             "badge": "Mensal",
             "features": {
