@@ -8,7 +8,6 @@ import { NotificationProvider } from '@/components/Notification/notification-pro
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 import Script from 'next/script';
-
 interface RootLayoutProps {
   children: ReactNode;
 }
@@ -20,11 +19,12 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   // side is the easiest way to get started
   const messages = await getMessages();
 
-
+  const GTM_ID = 'GTM-5FBKTVFM';
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" sizes='32x32' />
+        
       </head>
       <body
         className={cn(
@@ -58,6 +58,15 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           gtag('config', 'AW-16709252957');
         `}
         </Script>
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+            title="GTM"
+          ></iframe>
+        </noscript>
       </body>
     </html>
   );
