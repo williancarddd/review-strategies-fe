@@ -24,7 +24,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     <html lang={locale} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" sizes='32x32' />
-        
+
       </head>
       <body
         className={cn(
@@ -58,6 +58,15 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           gtag('config', 'AW-16709252957');
         `}
         </Script>
+        <Script>
+          {
+            ` gtag('event', 'conversion', {
+            'send_to': 'AW-16709252957/AQZVCJuyy9QZEN3uy58-',
+          'transaction_id': ''
+            });`
+          }
+        </Script>
+
         <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
