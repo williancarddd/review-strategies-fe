@@ -58,7 +58,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           gtag('config', 'AW-16709252957');
         `}
         </Script>
-        <Script>
+        <Script id="gtag-conversion" strategy="afterInteractive">
           {
             ` gtag('event', 'conversion', {
             'send_to': 'AW-16709252957/AQZVCJuyy9QZEN3uy58-',
