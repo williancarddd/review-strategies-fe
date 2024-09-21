@@ -1,4 +1,4 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import { createCheckouSection, checkIfHasActiveSubscription, cancelSubscription, getBillingInformation } from '@/services/stripe-service';
 import { useRouter } from 'next/navigation';
 import { useNotification } from '@/components/Notification/notification-provider';
@@ -87,6 +87,21 @@ export function useGetBillingInformationUser() {
     },
     onError: () => {
       notify("destructive", "Erro", "Erro ao carregar informações de pagamento.");
+    },
+  });
+}
+
+export function useGetHasActiveSubscription() {
+  const { notify } = useNotification();
+
+  return useMutation({
+    mutationFn: async ({ userId }: {
+      userId: string;
+    }) => {
+      return await checkIfHasActiveSubscription(userId);
+    },
+    onError: () => {
+      notify("destructive", "Erro", "Erro ao verificar assinatura.");
     },
   });
 }

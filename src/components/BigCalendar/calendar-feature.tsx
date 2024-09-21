@@ -3,6 +3,7 @@ import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { StudyDay } from '@/schemas/study-schema';
+import { color } from 'framer-motion';
 
 const localizer = momentLocalizer(moment);
 
@@ -21,6 +22,7 @@ export default function CalendarFeature({ events, date, onNavigate, onDateClick 
     allDay: false,
     studyDayId: event.id,
     status: event.status,
+    color: event.color,
   }));
 
   return (
@@ -39,6 +41,15 @@ export default function CalendarFeature({ events, date, onNavigate, onDateClick 
         style={{ height: 650 }}
         popup
         showAllEvents
+        eventPropGetter={(event) => {
+            return {
+              style: {
+                backgroundColor: event.color ?? '#3182ce',
+              },
+            };
+        
+        }
+      }
         className="border border-gray-300 rounded-lg"
       />
     </div>

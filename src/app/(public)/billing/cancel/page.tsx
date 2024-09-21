@@ -6,6 +6,9 @@ import { Button } from "@/components/ui/button";
 export default function CancelPage() {
   const router = useRouter();
 
+  function comeBackPage() {
+    router.back();
+  }
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-red-100 text-red-900">
       <div className="bg-white p-6 rounded-lg shadow-lg max-w-md text-center">
@@ -14,7 +17,7 @@ export default function CancelPage() {
         
         <div className="space-y-4">
           <Button 
-            onClick={() => router.push("/login?checkout=true")}
+            onClick={comeBackPage}
             className="w-full bg-red-600 hover:bg-red-700 text-white"
           >
             Tentar Novamente

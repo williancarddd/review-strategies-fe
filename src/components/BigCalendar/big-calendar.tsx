@@ -16,7 +16,7 @@ export default function BigCalendar() {
   const { user } = useAuthStore();
   const { studyDaysMonth } = useStudyDayStore();
   const fetechDataMonth = useFetchStudyMonth();
-  
+
   const handleNavigate = (newDate: Date) => {
     setDate(newDate);
   };
@@ -26,7 +26,6 @@ export default function BigCalendar() {
       setSelectedDate({ userId: user.sub, date });
       setModalOpen(true);
     } else {
-      // Lidar com o caso em que user ou user.sub é undefined
       console.warn('Usuário não definido');
     }
   };
@@ -35,15 +34,15 @@ export default function BigCalendar() {
     if (user?.sub) {
       fetechDataMonth.mutate({ userId: user.sub, date });
     } else {
-      // Lidar com o caso em que user ou user.sub é undefined
       console.warn('Usuário não definido');
     }
   }, [date, user]);
-  
+
 
   return (
-    <div className="lg:flex lg:space-x-6 space-y-6 lg:space-y-0 px-4 lg:px-8">
+    <div className="flex flex-col lg:flex-row lg:space-x-6 space-y-6 lg:space-y-0 px-4 overflow-hidden">
       {/* Calendário Principal */}
+
       <CalendarFeature
         events={studyDaysMonth}
         date={date}
@@ -51,8 +50,11 @@ export default function BigCalendar() {
         onNavigate={handleNavigate}
       />
 
+
       {/* Listagem de eventos ao lado */}
+
       <EventList events={studyDaysMonth} />
+
 
       {/* Modal de eventos */}
       <EventModal
@@ -67,7 +69,6 @@ export default function BigCalendar() {
           }
         }}
       />
-
     </div>
   );
 }

@@ -1,27 +1,26 @@
 import React from 'react';
 import { StudyDay } from '@/schemas/study-schema';
 import moment from 'moment';
+import { ScrollArea } from '../ui/scroll-area';
 
 interface EventListProps {
-  events: StudyDay[]; 
+  events: StudyDay[];
   onSelectEvent?: (event: StudyDay) => void;
 }
 
 export function EventList({ events, onSelectEvent }: EventListProps) {
   return (
-    <div className="lg:w-1/4 w-full lg:pl-4 pl-0 mt-6 lg:mt-0 overflow-auto h-96">
+    <ScrollArea className="h-96 rounded-md border p-4">
+
       <h2 className="text-xl font-semibold mb-4">Eventos do Mês</h2>
       <ul className="space-y-4">
         {events.map((event, index) => (
           <li
             key={index}
             className="bg-green-100 p-4 rounded-md shadow-md cursor-pointer"
-            onClick={() => onSelectEvent && onSelectEvent(event)} // Selecionar o evento quando clicado
+            onClick={() => onSelectEvent && onSelectEvent(event)} 
           >
-            <p
-              className="text-lg font-bold truncate max-w-full"
-              title={event.title}
-            >
+            <p className="text-lg font-bold truncate max-w-full" title={event.title}>
               {event.title}
             </p>
             <p className="text-sm text-gray-600">
@@ -30,6 +29,6 @@ export function EventList({ events, onSelectEvent }: EventListProps) {
           </li>
         ))}
       </ul>
-    </div>
+    </ScrollArea>
   );
 }

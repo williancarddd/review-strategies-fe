@@ -85,7 +85,8 @@
         "Payment": {
             "title": "Pioneer",
             "description": "Change your routine, change your life, achieve better results. Enjoy the best of our platform.",
-            "price": "$2.73",
+            "price": "$1.36",
+            "oldPrice": "$2.75",
             "pricePerMonth": "/month",
             "badge": "Monthly",
             "features": {

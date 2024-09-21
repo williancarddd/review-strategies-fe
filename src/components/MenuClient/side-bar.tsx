@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import UserProfile from './user-profile';
+import { AiOutlineClose } from 'react-icons/ai';
 
 interface MenuItem {
   id: string;
@@ -17,7 +18,7 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ menuItems, onClose, menuOpen, userProfileData }: SidebarProps) {
-  const pathname = usePathname(); // Para verificar a rota atual
+  const pathname = usePathname();
 
   return (
     <aside
@@ -31,10 +32,19 @@ export default function Sidebar({ menuItems, onClose, menuOpen, userProfileData 
       aria-hidden={!menuOpen}
       aria-label="Menu lateral de navegação"
     >
+      {/* Botão de Fechar (aparece apenas no mobile) */}
+      <button
+        onClick={onClose}
+        className="lg:hidden self-end mb-4 p-2 rounded-md bg-white text-gray-800 hover:bg-gray-200"
+        aria-label="Fechar menu"
+      >
+        <AiOutlineClose className="w-6 h-6" />
+      </button>
+
       {/* Informações de Perfil */}
       <UserProfile name={userProfileData.name} email={userProfileData.email} />
 
-      <nav className="grid grid-cols-2 gap-4 w-full mt-4">
+      <nav className="grid grid-cols-1 gap-4 w-full mt-4">
         {menuItems.map((item) => (
           <Link
             key={item.id}
@@ -48,7 +58,7 @@ export default function Sidebar({ menuItems, onClose, menuOpen, userProfileData 
                 ? 'bg-blue-600 text-white border-2 border-white shadow-md'
                 : ''
             }`}
-            onClick={onClose} // Fechar menu no mobile ao selecionar um item
+            onClick={onClose} // Fechar o menu ao clicar em um item
           >
             {item.icon && <span className="text-xl mb-1">{item.icon}</span>}
             {item.label}
