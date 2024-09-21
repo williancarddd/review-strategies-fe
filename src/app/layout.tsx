@@ -19,7 +19,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   // side is the easiest way to get started
   const messages = await getMessages();
 
-  const GTM_ID = '';
+  const GTM_ID = 'GTM-5FBKTVFM';
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
