@@ -8,10 +8,11 @@ import Link from 'next/link';
 import { useAuthStore } from '@/stores/auth-store'; // Importando o estado de autenticação
 import { useRouter } from 'next/navigation';
 import LocaleSwitcher from '../i18n/LocaleSwitcher';
+import { motion } from 'framer-motion'; // Para animações suaves
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { isAuthenticated, logout } = useAuthStore(); 
+  const { isAuthenticated, logout } = useAuthStore();
   const router = useRouter();
 
   const toggleMenu = () => {
@@ -20,7 +21,7 @@ export default function Header() {
 
   const handleScreenLogin = () => {
     logout();
-    router.push('/login'); 
+    router.push('/login');
   };
 
   return (
@@ -35,6 +36,11 @@ export default function Header() {
 
       {/* Links visíveis na versão desktop */}
       <div className="hidden lg:flex items-center space-x-6">
+        {isAuthenticated && (
+          <Link href="/pages/calendar" className="hover:text-gray-300">
+            Meus Estudos
+          </Link>
+        )}
         <Link href="/" className="hover:text-gray-300">
           Sobre Nós
         </Link>
@@ -57,18 +63,54 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="absolute top-16 left-0 w-full bg-background shadow-lg lg:hidden">
-          <div className="flex flex-col items-center space-y-4 py-4">
+        <>
+          {/* Overlay escurecido */}
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50 z-40"
+            onClick={toggleMenu}
+          />
 
-            <Link href="/" className="w-full text-center py-2 hover:bg-gray-200">
-              Sobre Nós
-            </Link>
-            <LocaleSwitcher />
-            <Button className="bg-primary text-primary-foreground px-4 py-2 rounded-lg text-lg font-semibold hover:bg-primary/90" onClick={handleScreenLogin}>
-              {isAuthenticated ? 'Logout' : 'Login'}
-            </Button>
-          </div>
-        </div>
+          {/* Menu Mobile */}
+          <motion.div
+            initial={{ opacity: 0, x: '-100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '-100%' }}
+            transition={{ duration: 0.3 }}
+            className="fixed top-0 left-0 w-3/4 h-full bg-white z-50 shadow-lg p-6 lg:hidden"
+          >
+            <div className="flex flex-col items-center space-y-4 py-4">
+              {isAuthenticated && (
+                <Link
+                  href="/pages/calendar"
+                  className="w-full text-center py-2 hover:bg-gray-200"
+                  onClick={toggleMenu}
+                >
+                  Meus Estudos
+                </Link>
+              )}
+              <Link
+                href="/"
+                className="w-full text-center py-2 hover:bg-gray-200"
+                onClick={toggleMenu}
+              >
+                Sobre Nós
+              </Link>
+              {/* Locale Switcher */}
+              <div className="w-auto">
+                <LocaleSwitcher /> 
+              </div>
+              <Button
+                className="bg-primary text-primary-foreground px-4 py-2 rounded-lg text-lg font-semibold hover:bg-primary/90"
+                onClick={() => {
+                  handleScreenLogin();
+                  toggleMenu();
+                }}
+              >
+                {isAuthenticated ? 'Logout' : 'Login'}
+              </Button>
+            </div>
+          </motion.div>
+        </>
       )}
     </header>
   );
