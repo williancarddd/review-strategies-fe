@@ -1,13 +1,6 @@
 import { create } from 'zustand';
 import { StudyDay, CreateStudyDayDto, UpdateStudyDayDto } from '@/schemas/study-schema';
-import {
-  fetchStudyDaysByMonth,
-  createStudyDay,
-  updateStudyDay,
-  fetchStudyDayById,
-  deleteStudyDay,
-  fetchStudyDaysByDay,
-} from '@/services/user-services';
+import { fetchStudyDaysByMonth, createStudyDay, updateStudyDay, fetchStudyDayById, deleteStudyDay, fetchStudyDaysByDay } from '@/services/user-services';
 
 interface StudyDayState {
   studyDaysMonth: StudyDay[];
@@ -20,10 +13,11 @@ interface StudyDayState {
   createStudyDay: (data: CreateStudyDayDto) => Promise<void>;
   updateStudyDay: (id: string, data: UpdateStudyDayDto) => Promise<void>;
   findStudyDay: (id: string) => Promise<StudyDay | null>;
-  deleteStudyDay: (id: string, userId: string) => Promise<void>;
+  deleteStudyDay: (id: string) => Promise<void>;
 }
 
 export const useStudyDayStore = create<StudyDayState>()(
+
   (set, get) => ({
     studyDaysMonth: [],
     studyDaysDay: [],
@@ -62,13 +56,13 @@ export const useStudyDayStore = create<StudyDayState>()(
       set({ loading: true, error: null });
       try {
         await createStudyDay(data);
+        // Após a criação, refetch para obter todos os StudyDays novamente
         get().fetchStudyDaysByMonth(data.userId, new Date());
       } catch (erro) {
         const error = erro as Error;
         set({ error: error.message, loading: false });
       }
     },
-
     // Busca StudyDay por ID
     findStudyDay: async (id) => {
       set({ loading: true, error: null });
@@ -82,13 +76,13 @@ export const useStudyDayStore = create<StudyDayState>()(
         return null;
       }
     },
-
     // Deletar StudyDay
-    deleteStudyDay: async (id, userId) => {
+    deleteStudyDay: async (id) => {
       set({ loading: true, error: null });
       try {
         await deleteStudyDay(id);
-        get().fetchStudyDaysByMonth(userId, new Date()); // Corrigido para usar userId ao invés de id
+        // Após a deleção, refetch para obter todos os StudyDays
+        get().fetchStudyDaysByMonth(id, new Date());
       } catch (erro) {
         const error = erro as Error;
         set({ error: error.message, loading: false });
@@ -100,8 +94,9 @@ export const useStudyDayStore = create<StudyDayState>()(
       set({ loading: true, error: null });
       try {
         const updated = await updateStudyDay(id, data);
+        // Após a atualização, refetch para obter todos os StudyDays
         get().fetchStudyDaysByMonth(updated.userId, new Date());
-        set({ studyDay: null, loading: false });
+        set({ studyDay: null,  loading: false });
       } catch (erro) {
         const error = erro as Error;
         set({ error: error.message, loading: false });
