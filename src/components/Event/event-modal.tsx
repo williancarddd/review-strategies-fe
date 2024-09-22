@@ -62,7 +62,7 @@ export default function EventModal({
 
   return (
     <AlertDialog open={isOpen} onOpenChange={onCloseModal}>
-      <AlertDialogContent className="max-w-3xl bg-white">
+      <AlertDialogContent className=" bg-white">
         <AlertDialogHeader>
           <AlertDialogTitle className="flex items-center justify-between">
             {selectedDate
@@ -70,13 +70,7 @@ export default function EventModal({
                   'DD/MM/YYYY'
                 )}`
               : 'Estudos do Dia'}
-            <Badge
-              style={{
-                backgroundColor: studyDay?.color || '#000',
-                color: 'white',
-                width: '100px',
-              }}
-            ></Badge>
+           
           </AlertDialogTitle>
         </AlertDialogHeader>
         <div className="flex flex-col lg:flex-row lg:space-x-6 space-y-6 lg:space-y-0">

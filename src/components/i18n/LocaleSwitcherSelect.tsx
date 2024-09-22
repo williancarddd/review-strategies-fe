@@ -33,7 +33,7 @@ export default function LocaleSwitcherSelect({
         <Select.Trigger
           aria-label={label}
           className={clsx(
-            'rounded-sm p-2 transition-colors hover:bg-slate-200',
+            'flex items-center justify-between rounded-sm p-2 transition-colors hover:bg-slate-200 w-full', // Ajuste para ocupar a largura total no mobile
             isPending && 'pointer-events-none opacity-60'
           )}
         >
@@ -43,8 +43,8 @@ export default function LocaleSwitcherSelect({
         </Select.Trigger>
         <Select.Portal>
           <Select.Content
-            align="end"
-            className="min-w-[8rem] overflow-hidden rounded-sm bg-white py-1 shadow-md"
+            align="start"
+            className="min-w-[8rem] overflow-hidden rounded-sm bg-white py-1 shadow-md z-50" // Certifique-se de que o z-index esteja correto
             position="popper"
           >
             <Select.Viewport>

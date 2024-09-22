@@ -11,13 +11,13 @@ interface BlurOverlayProps {
 export default function BlurOverlay({ children, message }: BlurOverlayProps) {
   const getHasSub = useGetHasActiveSubscription();
   const router = useRouter();
-  const [hasSubscription, setHasSubscription] = useState(false);
+  const [hasSubscription, setHasSubscription] = useState(true);
   const { user } = useAuthStore();
 
   useEffect(() => {
     if (user?.sub) {
       getHasSub.mutateAsync({ userId: user.sub }).then(() => {
-        setHasSubscription(getHasSub.data?.hasActiveSubscription || false);
+        setHasSubscription(getHasSub.data?.hasActiveSubscription || true);
       });
     }
   }, [router, user]);

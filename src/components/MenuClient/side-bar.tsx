@@ -2,6 +2,9 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import UserProfile from './user-profile';
 import { AiOutlineClose } from 'react-icons/ai';
+import router from 'next/router';
+import { useAuthStore } from '@/stores/auth-store';
+import { Button } from '../ui/button';
 
 interface MenuItem {
   id: string;
@@ -19,6 +22,13 @@ interface SidebarProps {
 
 export default function Sidebar({ menuItems, onClose, menuOpen, userProfileData }: SidebarProps) {
   const pathname = usePathname();
+  const { isAuthenticated, logout } = useAuthStore();
+
+  const handleScreenLogin = () => {
+    logout();
+    router.push('/login');
+  };
+
 
   return (
     <aside
@@ -26,9 +36,8 @@ export default function Sidebar({ menuItems, onClose, menuOpen, userProfileData 
         lg:mx-4 lg:rounded-md bg-gradient-to-b from-purple-700
         via-pink-500 to-red-500 text-white p-4 border-r
         border-gray-200 flex flex-col items-center rounded-lg 
-        lg:shadow-none shadow-lg transition-transform duration-300 ease-in-out ${
-        menuOpen ? 'translate-x-0' : '-translate-x-full'
-      } lg:translate-x-0 z-50`}
+        lg:shadow-none shadow-lg transition-transform duration-300 ease-in-out ${menuOpen ? 'translate-x-0' : '-translate-x-full'
+        } lg:translate-x-0 z-50`}
       aria-hidden={!menuOpen}
       aria-label="Menu lateral de navegação"
     >
@@ -53,17 +62,21 @@ export default function Sidebar({ menuItems, onClose, menuOpen, userProfileData 
             className={`relative text-center py-2 px-3 rounded-lg 
               flex flex-col items-center justify-center transition-all 
               duration-300 ease-in-out text-white hover:scale-105 
-              hover:rotate-3 hover:shadow-lg hover:shadow-blue-300 ${
-              pathname.includes(item.href)
+              hover:rotate-3 hover:shadow-lg hover:shadow-blue-300 ${pathname.includes(item.href)
                 ? 'bg-blue-600 text-white border-2 border-white shadow-md'
                 : ''
-            }`}
+              }`}
             onClick={onClose} // Fechar o menu ao clicar em um item
           >
             {item.icon && <span className="text-xl mb-1">{item.icon}</span>}
             {item.label}
           </Link>
         ))}
+
+        <Button className="ml-4" onClick={handleScreenLogin}>
+          {isAuthenticated ? 'Logout' : 'Login'}
+        </Button>
+
       </nav>
     </aside>
   );

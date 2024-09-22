@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaCalendarAlt, FaFileAlt, FaChartPie, FaClock } from 'react-icons/fa';
+import { FaCalendarAlt, FaFileAlt, FaChartPie, FaClock, FaHome } from 'react-icons/fa';
 import { FiUser } from 'react-icons/fi';
 import Sidebar from './side-bar';
 import { useAuthStore } from '@/stores/auth-store';

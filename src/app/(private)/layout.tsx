@@ -2,13 +2,11 @@
 
 import { ReactNode, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Header from '@/components/Menu/header';
+import Header from '@/components/Menu/headerPrivate';
 import { useAuthStore } from '@/stores/auth-store';
 import { cn } from '@/lib/utils';
-import { vibur, montserrat, poppins } from '@/lib/fonts'; 
+import { vibur, montserrat, poppins } from '@/lib/fonts';
 import MenuClient from '@/components/MenuClient/menu-client';
-
-
 
 interface PrivateLayoutProps {
   children: ReactNode;
@@ -54,8 +52,8 @@ export default function PrivateLayout({ children }: PrivateLayoutProps) {
   return (
     <div className={cn('min-h-screen bg-background font-sans antialiased', vibur.variable, montserrat.variable, poppins.variable)}>
       <div className="h-screen flex flex-col">
-  
-        <div className="flex flex-1 lg:justify-center  lg:items-center md:justify-start md:items-start">
+        <Header />
+        <div className="flex flex-1 lg:justify-center lg:items-center md:justify-start md:items-start mt-12 lg:mt-0">
           <MenuClient />
           <main className="flex-1 bg-white">{children}</main>
         </div>
