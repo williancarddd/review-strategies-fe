@@ -6,6 +6,7 @@ interface User {
   email: string;
   sub: string;
   access_token: string;
+  hasActiveSubscription: boolean; 
 }
 
 interface AuthState {

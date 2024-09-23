@@ -1,7 +1,5 @@
-import { useGetHasActiveSubscription } from "@/hooks/use-payment";
 import { useAuthStore } from "@/stores/auth-store";
-import React, { ReactNode, useEffect, useState } from "react";
-import { useRouter } from 'next/navigation';
+import React, { ReactNode } from "react";
 
 interface BlurOverlayProps {
   children: ReactNode;
@@ -9,25 +7,12 @@ interface BlurOverlayProps {
 }
 
 export default function BlurOverlay({ children, message }: BlurOverlayProps) {
-  const getHasSub = useGetHasActiveSubscription();
-  const router = useRouter();
-  const [hasSubscription, setHasSubscription] = useState(false);
-  const [loading, setLoading] = useState(true); // Adicionar um estado de carregamento
   const { user } = useAuthStore();
 
-  useEffect(() => {
-    if (user?.sub) {
-      getHasSub.mutateAsync({ userId: user.sub }).then(() => {
-        setHasSubscription(getHasSub.data?.hasActiveSubscription || false);
-        setLoading(false); // Definir carregamento como falso após a resposta
-      });
-    }
-  }, [user]);
+  // Verificar se o usuário tem uma assinatura ativa diretamente no estado global
 
-  // Se estiver carregando, não mostrar o conteúdo ainda
-  if (loading) {
-    return <div>Preparando para você...</div>;
-  }
+  console.log(user);
+  const hasSubscription = user?.hasActiveSubscription || false;
 
   return (
     <div className="w-full relative">
