@@ -8,7 +8,7 @@ import BlurOverlay from "@/components/ui/blur-overlay";
 export default function CalendarPage() {
   return (
     <div>
-      <BlurOverlay message={"Você não tema acesso a esse recurso!!"}>
+      <BlurOverlay message={"Você não tem acesso a esse recurso!!"}>
         <BigCalendar />
       </BlurOverlay>
     </div>

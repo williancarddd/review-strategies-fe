@@ -12,15 +12,22 @@ export default function BlurOverlay({ children, message }: BlurOverlayProps) {
   const getHasSub = useGetHasActiveSubscription();
   const router = useRouter();
   const [hasSubscription, setHasSubscription] = useState(false);
+  const [loading, setLoading] = useState(true); // Adicionar um estado de carregamento
   const { user } = useAuthStore();
 
   useEffect(() => {
     if (user?.sub) {
       getHasSub.mutateAsync({ userId: user.sub }).then(() => {
         setHasSubscription(getHasSub.data?.hasActiveSubscription || false);
+        setLoading(false); // Definir carregamento como falso após a resposta
       });
     }
-  }, [router, user]);
+  }, [user]);
+
+  // Se estiver carregando, não mostrar o conteúdo ainda
+  if (loading) {
+    return <div>Preparando para você...</div>;
+  }
 
   return (
     <div className="w-full relative">
