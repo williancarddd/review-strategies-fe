@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 import { Analytics } from "@vercel/analytics/react";
-import { vibur, montserrat, poppins } from '@/lib/fonts';  // Importar fontes centralizadas
+import { Fonts } from '@/lib/fonts';  // Importar fontes centralizadas
 import './globals.css';
 import { Provider } from '@/providers/provider';
 import { NotificationProvider } from '@/components/Notification/notification-provider';
@@ -29,9 +29,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       <body
         className={cn(
           'min-h-screen bg-background font-sans antialiased',
-          vibur.variable,
-          montserrat.variable,
-          poppins.variable
+          ...Fonts
         )}
       >
         <NextIntlClientProvider messages={messages}>
