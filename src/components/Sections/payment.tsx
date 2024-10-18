@@ -72,10 +72,7 @@ export default function Payment() {
               <CheckCircledIcon className="w-5 h-5 text-green-400 mr-2" />
               {t('features.feature8')}
             </li>
-            <li className="flex items-center">
-              <CheckCircledIcon className="w-5 h-5 text-green-400 mr-2" />
-              {t('features.feature9')}
-            </li>
+        
           </ul>
         </CardContent>
         <CardFooter className="pt-6">

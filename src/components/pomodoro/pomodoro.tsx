@@ -33,11 +33,11 @@ const PomodoroApp = () => {
 
   return (
     <div className="max-w-lg mx-auto p-6 bg-white rounded-md shadow-md">
-      <div className="flex justify-end">
+      {/* <div className="flex justify-end">
         <Button variant="ghost" onClick={() => setSettingsOpen(true)}>
           <FaCog />
         </Button>
-      </div>
+      </div> */}
       <Header currentMode={mode} setMode={setMode} />
       <PomodoroTimer mode={mode} onComplete={handleComplete} />
       <TaskList />
