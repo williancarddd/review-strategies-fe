@@ -30,7 +30,7 @@ export default function Header() {
       <div></div>
       <div className="flex items-center justfy-center">
         <Link href="/">
-          <Image src="/herman.png" alt="logo" width={60} height={60} />
+          <Image src="/Herman.png" alt="logo" width={60} height={60} />
         </Link>
         <p className="font-medium text-white font-Roboto text-3xl">Herman.ai</p>
       </div>
