@@ -25,27 +25,28 @@ export default function Header() {
   };
 
   return (
-    <header className="flex items-center justify-between py-4 px-6 bg-background shadow-lg relative z-50">
+    <header className="flex items-center justify-between py-4 px-6 bg-Bossanova shadow-lg relative z-50">
       {/* Logo and Title */}
-      <div className="flex items-center space-x-4">
+      <div></div>
+      <div className="flex items-center justfy-center">
         <Link href="/">
-          <Image src="/Logo.png" alt="logo" width={40} height={40} />
+          <Image src="/herman.png" alt="logo" width={60} height={60} />
         </Link>
-        <p className="font-medium font-vibur text-3xl">Review Strategies</p>
+        <p className="font-medium text-white font-Roboto text-3xl">Herman.ai</p>
       </div>
 
       {/* Links visíveis na versão desktop */}
-      <div className="hidden lg:flex items-center space-x-6">
+      <div className="hidden lg:flex text-right items-center space-x-6">
         {isAuthenticated && (
-          <Link href="/pages/calendar" className="hover:text-gray-300">
+          <Link href="/pages/calendar" className="text-white hover:text-gray-300">
             Meus Estudos
           </Link>
         )}
-        <Link href="/" className="hover:text-gray-300">
+        <Link href="/" className="text-white hover:text-gray-300">
           Sobre Nós
         </Link>
         <LocaleSwitcher />
-        <Button className="ml-4" onClick={handleScreenLogin}>
+        <Button className="ml-4 border-2 bg-Deluge hover:bg-Bossanova" onClick={handleScreenLogin}>
           {isAuthenticated ? 'Logout' : 'Login'}
         </Button>
       </div>

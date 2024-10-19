@@ -25,13 +25,12 @@ export default function Home() {
           description={t('ImpactSection.description')}
           buttonText={t('ImpactSection.buttonText')}
           buttonLink="#payment-section" // Link para a seção de pagamento
-          imageUrl="/principal.svg"
+          imageUrl="/herm.png"
           imageAlt="Imagem de um computador com um olho"
         />
         <ForgettingCurveSection />
         <ForgettingCurveExplanation />
         <HowToWork />
-        <HowStart />
         <Payment />
         <Footer />
       </main>

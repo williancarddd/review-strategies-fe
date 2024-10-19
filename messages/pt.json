@@ -1,72 +1,25 @@
 {
     "HomePage": {
         "ImpactSection": {
-            "title": "Construa no Review Strategies",
-            "subtitle": "A melhor maneira de otimizar seus estudos",
-            "description": "Nossa plataforma ajuda você a melhorar seus estudos com técnicas comprovadas de revisão.",
-            "buttonText": "EU QUERO"
+            "title": "A melhor maneira de otimizar seus Estudos",
+            "subtitle": "O Herman.ai ajuda você a melhorar seus estudos com técnicas comprovadas de revisão."
         },
         "ForgettingCurveSection": {
-            "title": "Você Esquece depois que estuda algo? 🤔",
-            "gifAlt": "GIF de Curva de Esquecimento",
-            "paragraph1": "Que atire a primeira pedra quem nunca esqueceu um conteúdo que tinha estudado na semana anterior!",
-            "paragraph2": {
-                "txt1": "Você já ouviu falar na",
-                "txt2": "Curva de esquecimento de Ebbinghaus",
-                "txt3": "? Não? (ou já esqueceu? kkk)"
-            },
-            "paragraph3": "Antes de se assustar com esse nome, saiba que ela atinge todo mundo! Isso significa que enquanto você está lendo esse post, está esquecendo de alguma informação que você estudou."
+            "title": "Como faço para não esquecer? 🤔",
+            "ImageHerma": "Desenho do Herman",
+            "paragraph1": "Em 1885, o psicólogo alemão Hermann Ebbinghaus apresentou ao mundo sua famosa teoria da Curva do Esquecimento 📉, que demonstra graficamente a quantidade de informações que nosso cérebro é capaz de reter ao longo do tempo.",
+            "buttonText": "ASSINE AGORA"
         },
-        
         "ForgettingCurveExplanation": {
-            "title": "Estudei e Esqueci!! 🙁",
-            "paragraph1": {
-                "txt1": "A boa notícia 🎉 é que, se você entender um pouco melhor sobre essa teoria e se organizar, dá pra manter o foco e",
-                "txt2": "não esquecer",
-                "txt3": "o que é importante!"
-            },
-            "paragraph2": {
-                "txt1": "Em 1885, o psicólogo alemão",
-                "txt2": "Hermann Ebbinghaus",
-                "txt3": "apresentou ao mundo sua famosa teoria da",
-                "txt4": "Curva do Esquecimento",
-                "txt5": "📉, que demonstra graficamente a quantidade de informações que nosso cérebro é capaz de reter ao longo do tempo."
-            },
-            "graphAlt": "Gráfico da Curva do Esquecimento",
-            "paragraph3": {
-                "txt1": "Nossa plataforma segue a teoria de",
-                "txt2": "Ebbinghaus",
-                "txt3": "! 🧠 Ela faz o",
-                "txt4": "planejamento de estudos",
-                "txt5": "baseado nas revisões, e você não vai esquecer mais nada! 🚀"
-            },
-            "paragraph4": {
-                "txt1": "Por exemplo, você acabou de estudar",
-                "txt2": "MATEMÁTICA",
-                "txt3": ", faça uma",
-                "txt4": "revisão",
-                "txt5": "logo após estudar o assunto, outra 24 horas mais tarde, mais uma depois de 7 dias, e, finalmente, outra após 30 dias. Nós cuidamos para que você siga esse cronograma! 📅✅"
-            }
+            "title": "Nossa plataforma segue a teoria de Ebbinghaus!",
+            "paragraph1": "Ela faz o planejamento de estudos baseado nas revisões, e você não vai esquecer mais nada!",
+            "buttonText": "ASSINE AGORA"
         },
         "HowToWork": {
-            "title": "Como Funciona",
-            "feature1": {
-                "title": "Você Ganha Desempenho",
-                "description": "Você visualiza seu planejamento de estudos, que é feito de acordo com a sua disponibilidade de tempo e suas necessidades."
-            },
-            "feature2": {
-                "title": "Você Ganha Precisão",
-                "description": "Utilizando a técnica de Hermann Ebbinghaus você consegue revisar o conteúdo no momento certo, evitando a curva do esquecimento."
-            },
-            "feature3": {
-                "title": "Veja Seu Progresso",
-                "description": "Acompanhe seu progresso e veja como você está evoluindo nos estudos."
-            },
-            "feature4": {
-                "title": "Tenha Resultados Imediatos",
-                "description": "Os resultados surgem rapidamente, pois o tempo e seu calendário já estão organizados baseado nas técnicas mais eficientes de estudo."
-            },
-            "buttonText": "Comece agora"
+            "title": "Você Ganha Desempenho",
+            "Imagedash": "Imagem da dashboard",
+            "paragraph1": "Você visualiza seu planejamento de estudos, que é feito de acordo com a sua disponibilidade de tempo e suas necessidades.",
+            "buttonText": "ASSINE AGORA"
         },
         "HowStart": {
             "title": "Em 3 passos",
@@ -86,6 +39,8 @@
         "Payment": {
             "title": "Pioneiro",
             "description": "Mude sua rotina, mude sua vida, tenha melhores resultados. Aproveite o melhor da nossa plataforma.",
+            "title2": "Alcance seus objetivos!",
+            "paragraph1": "Seu futuro começa hoje. Cuide do seu aprendizado e prepare-se para conquistar grandes resultados.",
             "price": "R$ 7.90",
             "oldPrice": "R$ 14.90",
             "pricePerMonth": "/mês",

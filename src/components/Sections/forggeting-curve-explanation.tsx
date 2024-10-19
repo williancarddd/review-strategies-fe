@@ -1,49 +1,55 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
+import { Button } from "../ui/button";
 import { useTranslations } from 'next-intl';
 
 export default function ForgettingCurveExplanation() {
   const t = useTranslations('HomePage.ForgettingCurveExplanation');
 
   return (
-    <section className="py-16 px-6 lg:px-16 bg-gray-50">
+    <section className="py-16 px-6 lg:px-8 bg-Deluge">
       <div className="max-w-4xl mx-auto">
 
         {/* Título */}
         <div className="mb-8 text-center">
-          <h1 className="text-4xl font-bold text-blue-600 border-2 border-blue-400 p-4 rounded-lg inline-block shadow-md">
-            {t('title')}
+          <h1 >
+
           </h1>
         </div>
 
-        {/* Texto Explicativo */}
-        <div className="space-y-6 text-lg text-gray-800">
-          <p>
-            {t('paragraph1.txt1')} <span className="font-bold text-blue-600">{t('paragraph1.txt2')}</span> {t('paragraph1.txt3')}
-          </p>
-          <p>
-            {t('paragraph2.txt1')} <strong className="text-blue-600">{t('paragraph2.txt2')}</strong> {t('paragraph2.txt3')} <strong className="text-blue-600">{t('paragraph2.txt4')}</strong> {t('paragraph2.txt5')}
-          </p>
-        </div>
+        {/* Imagem e Texto */}
+        <div className="flex flex-col lg:flex-row items-center gap-8">
 
-        {/* Gráfico */}
-        <div className="mt-8 mb-6 flex justify-center">
-          <div className="border-2 border-blue-400 rounded-lg p-4 shadow-md">
-            <Image src="/curve.png" alt={t('graphAlt')} width={800} height={600} />
+
+          {/* Texto explicativo e Botão*/}
+          <div className="w-full lg:w-1/2 space-y-4 text-lg  text-white">
+            <h1 className="text-3xl font-roboto font-bold text-white"> {t('title')} </h1>
+            <p>{t('paragraph1')}</p>
+            <div className="mt-8">
+              <Link href="#payment-section"  >
+                <Button className="border-2 bg-Deluge text-white px-6 py-3 rounded-full text-lg hover:bg-Bossanova transition-colors">
+                  {t('buttonText')}
+                </Button>
+              </Link>
+            </div>
           </div>
-        </div>
 
-        {/* Texto Final */}
-        <div className="space-y-6 text-lg text-gray-800">
-          <p>
-            {t('paragraph3.txt1')} <span className="font-bold text-blue-600">{t('paragraph3.txt2')}</span>{t('paragraph3.txt3')} <span className="font-bold text-blue-600">{t('paragraph3.txt4')}</span>{t('paragraph3.txt5')}
-          </p>
-          <p>
-            {t('paragraph4.txt1')} <strong className="text-blue-600">{t('paragraph4.txt2')}</strong>{t('paragraph4.txt3')} <span className="font-bold text-blue-600">{t('paragraph4.txt4')}</span>{t('paragraph4.txt5')}
-          </p>
+          {/* Área da Imagem */}
+          <div className="w-full lg:w-1/2 flex  justify-center">
+            {/* Substitua pelo seu GIF ou imagem */}
+            <Image
+              src="/curva.png"
+              alt={t('ImageHerma')}
+              width={632}
+              height={708.06}
+              className="rounded-lg"
+            />
+          </div>
         </div>
       </div>
     </section>
   );
 }
+

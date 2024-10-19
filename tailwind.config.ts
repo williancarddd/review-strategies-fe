@@ -16,6 +16,10 @@ const config: Config = {
   		},
   		colors: {
   			background: 'hsl(var(--background))',
+			'Bossanova': '#462F5F',
+			'Romantic':'#FECDB5',
+			'Deluge':'#8066A7',
+			'White':'#FFFF',
   			foreground: 'hsl(var(--foreground))',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
@@ -55,6 +59,8 @@ const config: Config = {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			}
+
+
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
@@ -83,6 +89,8 @@ const config: Config = {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out'
   		}
+		
+		
   	}
   },
   plugins: [require("tailwindcss-animate")],

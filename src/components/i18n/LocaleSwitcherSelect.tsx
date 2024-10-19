@@ -33,12 +33,12 @@ export default function LocaleSwitcherSelect({
         <Select.Trigger
           aria-label={label}
           className={clsx(
-            'flex items-center justify-between rounded-sm p-2 transition-colors hover:bg-slate-200 w-full', // Ajuste para ocupar a largura total no mobile
+            'flex items-center justify-between rounded-sm p-2 transition-colors hover:bg-Deluge w-full', // Ajuste para ocupar a largura total no mobile
             isPending && 'pointer-events-none opacity-60'
           )}
         >
           <Select.Icon>
-            <LanguageIcon className="h-6 w-6 text-slate-600 transition-colors group-hover:text-slate-900" />
+            <LanguageIcon className="h-6 w-6 text-white transition-colors group-hover:text-Deluge" />
           </Select.Icon>
         </Select.Trigger>
         <Select.Portal>

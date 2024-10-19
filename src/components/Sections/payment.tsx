@@ -9,6 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { CheckCircledIcon } from "@radix-ui/react-icons";
+import Iphone15Pro from "@/components/ui/iphone-15-pro";
 import { useTranslations } from 'next-intl';
 import Link from "next/link";
 import { Button } from "../ui/button";
@@ -17,26 +18,32 @@ export default function Payment() {
   const t = useTranslations('HomePage.Payment');
 
   return (
-    <section className="py-8 flex justify-center items-center bg-gray-100" id="payment-section">
-      <Card className="max-w-sm bg-gray-900 text-white rounded-lg p-6 relative">
+    <section className="py-8 flex justify-center items-center bg-Deluge" id="payment-section">
+
+      {/*<div className="w-full lg:w-1/2 space-y-4 text-lg text-white">
+        <h1 className="text-3xl font-roboto text-white"> {t('title2')} </h1>
+        <p>{t('paragraph1')}</p>
+      </div>*/}
+      
+      <Card className="relative max-w-sm bg-wh text-white rounded-lg p-6 ">
         {/* Badge de popularidade */}
-        <span className="absolute top-4 right-4 bg-green-500 text-white text-sm px-3 py-1 rounded-full">
+        <span className="absolute top-4 right-4 bg-wh text-white text-sm px-3 py-1 rounded-full">
           {t('badge')}
         </span>
         <CardHeader>
-          <CardTitle className="text-white text-xl font-bold">{t('title')}</CardTitle>
-          <CardDescription className="text-gray-400 text-5xl font-bold flex items-center">
+          <CardTitle className="text-white text-xl font-roboto">{t('title')}</CardTitle>
+          <CardDescription className="text-gray-400 text-5xl font-roboto flex items-center">
             {/* Preço original riscado */}
             <span className="text-2xl line-through text-red-500 mr-2">{t('oldPrice')}</span>
             {/* Preço com desconto */}
             <span className="text-white">{t('price')}</span>
             <span className="text-2xl ml-2">{t('pricePerMonth')}</span>
           </CardDescription>
-         
+
         </CardHeader>
 
         <CardContent>
-          <p className="text-gray-400 mb-6">
+          <p className="text-white mb-6">
             {t('description')}
           </p>
           <ul className="space-y-2">
@@ -72,17 +79,19 @@ export default function Payment() {
               <CheckCircledIcon className="w-5 h-5 text-green-400 mr-2" />
               {t('features.feature8')}
             </li>
-        
+
           </ul>
         </CardContent>
         <CardFooter className="pt-6">
           <Link href="/login?checkout=true">
-            <Button className="bg-blue-600 text-white w-full py-3 rounded-lg hover:bg-blue-500 transition-colors">
+            <Button className="border-2 bg-Deluge text-white w-full py-3 rounded-lg hover:bg-Bossanova transition-colors">
               {t('buttonText')}
             </Button>
           </Link>
         </CardFooter>
+
       </Card>
+
     </section>
   );
 }

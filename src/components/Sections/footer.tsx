@@ -10,14 +10,14 @@ export default function Footer() {
   const t = useTranslations('HomePage.Footer');
 
   return (
-    <footer className="bg-blue-600 text-white py-10 lg:py-16">
+    <footer className="bg-Bossanova text-white py-10 lg:py-16">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-8 px-6 text-center lg:text-left">
 
         {/* Logo e Links de App Store */}
         <div className="space-y-6 flex flex-col items-center lg:items-start">
           <div>
             <Link href="/">
-              <Image src="/logoblack.png" alt="Review Strategies" width={50} height={50} />
+              <Image src="/Herman.png" alt="Review Strategies" width={100} height={100} />
             </Link>
           </div>
           <div className="space-y-4">
@@ -71,7 +71,7 @@ export default function Footer() {
 
       {/* Parceiros */}
       <div className="max-w-7xl mx-auto mt-10 px-6 lg:px-0 flex justify-center lg:justify-between items-center space-y-4 lg:space-y-0">
-        <Image src="/Powered by Stripe - black.svg" alt={t('poweredBy')} width={150} height={50} />
+        <Image src="/porwerbystripe.svg" alt={t('poweredBy')} width={150} height={50} />
       </div>
 
       {/* Copyright */}
