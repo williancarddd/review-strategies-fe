@@ -1,0 +1,32 @@
+/* .active-item {
+    position: relative;
+    background-color: #ffffff; 
+    color: #000000; 
+    z-index: 1; 
+} */
+/* 
+.active-item::before {
+    content: '';
+    position: absolute;
+    top: -60px; 
+    right: -20px; 
+    transform: rotate(90deg); 
+    width: 80px;
+    height: 80px;
+    background-color: #ffffff; 
+    border-radius: 0 50px 0 0; 
+    z-index: -1; 
+}
+
+.active-item::after {
+    content: '';
+    position: absolute;
+    bottom: -48px; 
+    right: -25px; 
+    width: 80px;
+    height: 80px;
+    transform: rotate(270deg); 
+    background-color: #ffffff; 
+    border-radius: 0 0 50px 0px; 
+    z-index: -1;
+} */

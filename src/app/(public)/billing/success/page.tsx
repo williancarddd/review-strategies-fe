@@ -14,7 +14,7 @@ export default function SuccessPage() {
         
         <div className="space-y-4">
           <Button 
-            onClick={() => router.push("/pages/calendar")}
+            onClick={() => router.push("/pages/dashboard")}
             className="w-full bg-green-600 hover:bg-green-700 text-white"
           >
            Começe a criar suas revisões

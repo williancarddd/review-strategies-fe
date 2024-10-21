@@ -81,7 +81,7 @@ export default function Header() {
             <div className="flex flex-col items-center space-y-4 py-4">
               {isAuthenticated && (
                 <Link
-                  href="/pages/calendar"
+                  href="/pages/dashboard"
                   className="w-full text-center py-2 hover:bg-gray-200"
                   onClick={toggleMenu}
                 >

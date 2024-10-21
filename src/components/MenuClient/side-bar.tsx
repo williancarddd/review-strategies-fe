@@ -2,9 +2,12 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import UserProfile from './user-profile';
 import { AiOutlineClose } from 'react-icons/ai';
-import router from 'next/router';
+import router, { useRouter } from 'next/router'; // Corrigido para useRouter
 import { useAuthStore } from '@/stores/auth-store';
 import { Button } from '../ui/button';
+import { FaClipboardList, FaCalendarAlt, FaBell, FaCog } from 'react-icons/fa'; // Exemplo de ícones
+import Image from 'next/image';
+import { RiUserSettingsFill } from "react-icons/ri";
 
 interface MenuItem {
   id: string;
@@ -29,54 +32,58 @@ export default function Sidebar({ menuItems, onClose, menuOpen, userProfileData 
     router.push('/login');
   };
 
-
   return (
     <aside
-      className={`fixed lg:static top-0 left-0 w-64 h-screen lg:h-4/5 
-        lg:mx-4 lg:rounded-md bg-gradient-to-b from-purple-700
-        via-pink-500 to-red-500 text-white p-4 border-r
-        border-gray-200 flex flex-col items-center rounded-lg 
-        lg:shadow-none shadow-lg transition-transform duration-300 ease-in-out ${menuOpen ? 'translate-x-0' : '-translate-x-full'
-        } lg:translate-x-0 z-50`}
+      className={`fixed lg:static top-0 left-0 w-64 h-screen bg-customPrimary-deluge text-white
+        flex flex-col items-center py-8 transition-transform duration-300 ease-in-out ${menuOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 z-50 font-roboto`}
       aria-hidden={!menuOpen}
       aria-label="Menu lateral de navegação"
     >
-      {/* Botão de Fechar (aparece apenas no mobile) */}
-      <button
-        onClick={onClose}
-        className="lg:hidden self-end mb-4 p-2 rounded-md bg-white text-gray-800 hover:bg-gray-200"
-        aria-label="Fechar menu"
-      >
-        <AiOutlineClose className="w-6 h-6" />
-      </button>
+      
 
-      {/* Informações de Perfil */}
-      <UserProfile name={userProfileData.name} email={userProfileData.email} />
+      {/* Informações de Perfil com Logo */}
+      <div className="flex items-center space-x-4 ml-4">
+        <Link href="/">
+          <Image src="/Logo.png" alt="logo" width={60} height={60} className="rounded-full" />
+        </Link>
+        <p className="font-medium text-2xl">Review Strategies</p>
+      </div>
 
-      <nav className="grid grid-cols-1 gap-4 w-full mt-4">
-        {menuItems.map((item) => (
-          <Link
-            key={item.id}
-            href={item.href}
-            title={item.label}
-            className={`relative text-center py-2 px-3 rounded-lg 
-              flex flex-col items-center justify-center transition-all 
-              duration-300 ease-in-out text-white hover:scale-105 
-              hover:rotate-3 hover:shadow-lg hover:shadow-blue-300 ${pathname.includes(item.href)
-                ? 'bg-blue-600 text-white border-2 border-white shadow-md'
-                : ''
-              }`}
-            onClick={onClose} // Fechar o menu ao clicar em um item
-          >
-            {item.icon && <span className="text-xl mb-1">{item.icon}</span>}
-            {item.label}
-          </Link>
-        ))}
+      <nav className="flex flex-col mt-8 w-full text-center h-full justify-between">
+        <div className="flex flex-col gap-6">
+          {menuItems.map((item) => (
+            <Link
+              key={item.id}
+              href={item.href}
+              title={item.label}
+              className={`relative py-3 px-6 w-full flex items-center justify-start space-x-4 font-bold text-sm
+                transition-all duration-300 ease-in-out 
+                ${pathname.includes(item.href) ? 'bg-white text-black ' : ''}`} // Aplicando arredondamento à direita
+              onClick={onClose} // Fechar o menu ao clicar em um item
+            >
+              {item.icon && item.icon}
+              <span>{item.label}</span>
+            </Link>
+          ))}
+        </div>
 
-        <Button className="ml-4" onClick={handleScreenLogin}>
+        {/* Configurações com borda arredondada inferior */}
+        <Link
+          href="/pages/settings"
+          title="Configurações"
+          className={`py-3 px-6 w-full flex items-center justify-start space-x-4 font-bold text-sm
+            transition-all duration-300 ease-in-out  
+            ${pathname.includes('settings') ? 'bg-white text-black ' : ''}`} // Arredondamento também no item "Configurações"
+          onClick={onClose}
+        >
+          <RiUserSettingsFill size={32} />
+          <span>Configurações</span>
+        </Link>
+
+        {/* Botão de Login/Logout */}
+        {/* <Button className="mt-4" onClick={handleScreenLogin}>
           {isAuthenticated ? 'Logout' : 'Login'}
-        </Button>
-
+        </Button> */}
       </nav>
     </aside>
   );

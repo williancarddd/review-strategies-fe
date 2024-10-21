@@ -1,26 +1,25 @@
 import { useState } from 'react';
-import { FaCalendarAlt, FaFileAlt, FaChartPie, FaClock, FaHome } from 'react-icons/fa';
-import { FiUser } from 'react-icons/fi';
+import { FaCalendarAlt, FaFileAlt, FaEnvelope } from 'react-icons/fa';
 import Sidebar from './side-bar';
 import { useAuthStore } from '@/stores/auth-store';
 import { useGetUserById } from '@/hooks/user-hook';
 import HamburgerButton from './hamburguer';
+import { MdNotificationsActive } from "react-icons/md";
 
 export default function MenuClient() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { user } = useAuthStore();
   const { data, isLoading } = useGetUserById(user?.sub || '');
-  
+
+  // Alterna a visibilidade do menu
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+    setMenuOpen(prevState => !prevState);
   };
 
   const menuItems = [
-    { id: 'big-calendar', label: 'Meus Estudos', href: '/pages/calendar', icon: <FaCalendarAlt /> },
-    { id: 'pomodoro', label: 'Pomodoro', href: '/pages/pomodoro', icon: <FaClock /> },
-    { id: 'profile', label: 'Meu Perfil', href: '/pages/profile', icon: <FiUser /> },
-    { id: 'statistics', label: 'Estatísticas', href: '/pages/statistics', icon: <FaChartPie /> },
-    { id: 'support', label: 'Suporte', href: '/pages/support', icon: <FaFileAlt /> }
+    { id: 'dashboard', label: 'Meus Estudos', href: '/pages/dashboard', icon: <FaCalendarAlt size={32}/> },
+    { id: 'notifications', label: 'Notificações', href: '/pages/notification', icon: <MdNotificationsActive size={32}/> },
+    { id: 'support', label: 'Suporte', href: '/pages/support', icon: <FaFileAlt size={32}/> },
   ];
 
   return (
@@ -30,7 +29,7 @@ export default function MenuClient() {
         menuItems={menuItems} 
         onClose={toggleMenu} 
         menuOpen={menuOpen} 
-        userProfileData={{ name: data?.name || '', email: data?.email || '' }}
+        userProfileData={{ name: data?.name || 'Usuário', email: data?.email || 'email@example.com' }}
       />
     </>
   );
