@@ -10,15 +10,11 @@ export default function ForgettingCurveSection() {
   const t = useTranslations('HomePage.ForgettingCurveSection');
 
   return (
-    <section className="py-16 px-6 lg:px-8 bg-Romantic">
+    <section className="py-32 px-6 lg:px-8 bg-Romantic ">
       <div className="max-w-4xl mx-auto">
 
         {/* Título */}
-        <div className="mb-8 text-center">
-          <h1 className="text-3xl font-roboto  font-bold text-Deluge">
-            {t('title')}
-          </h1>
-        </div>
+
 
         {/* Imagem e Texto */}
         <div className="flex flex-col lg:flex-row items-center gap-8">
@@ -36,7 +32,14 @@ export default function ForgettingCurveSection() {
           </div>
 
           {/* Texto explicativo e Botão*/}
-          <div className="w-full lg:w-1/2 space-y-4 text-lg  text-Deluge">
+          <div className="w-full lg:w-1/2 space-y-4 text-lg  text-Bossanova">
+
+            <div className="mb-8 w-full ">
+              <h1 className="text-3xl font-roboto  font-bold text-Bossanova w-full">
+                {t('title')}
+              </h1>
+            </div>
+
             <p>{t('paragraph1')}</p>
             <div className="mt-8">
 

@@ -14,10 +14,13 @@ const config: Config = {
 				 'roboto': ['Roboto', 'sans-serif'],
 			},
 			colors: {
+				Deluge: '#8066A7',
+				Bossanova: '#462F5F',
+				Romantic: '#FECDB5',
 				customPrimary: {
 					bossanova: '#462F5F',
 					deluge: '#8066A7',
-					romantic: '#51CF66',
+					romantic: '#FECDB5',
 				},
 				customSecondary: {
 					white: '#FFFFFF',

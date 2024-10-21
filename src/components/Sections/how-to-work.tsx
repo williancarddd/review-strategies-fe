@@ -25,7 +25,7 @@ const HowToWork = () => {
   const t = useTranslations('HomePage.HowToWork'); // Using the 'HomePage.HowToWork' key
 
   return (
-    <section className="py-16 px-6 lg:px-8 bg-Romantic">
+    <section className="py-32 px-6 lg:px-8 bg-Romantic">
       <div className="max-w-4xl mx-auto">
 
 
@@ -45,15 +45,15 @@ const HowToWork = () => {
           </div>
 
           {/* Texto explicativo e Botão*/}
-          <div className="w-full lg:w-1/2 space-y-4 text-lg  font-semiroboto text-Deluge">
+          <div className="w-full lg:w-1/2 space-y-4 text-lg  font-semiroboto text-Bossanova">
             {/* Título */}
-            <h1 className="text-3xl font-roboto font-bold text-Deluge">
+            <h1 className="text-3xl font-roboto font-bold text-Bossanova">
               {t('title')}
             </h1>
             <p>{t('paragraph1')}</p>
             <div className="mt-8">
               <Link href="#payment-section">
-                <Button className="bg-Deluge text-white px-6 py-3 rounded-full text-lg hover:bg-Bossanova transition-colors">
+                <Button className="bg-Deluge text-white p-6 rounded-full text-lg hover:bg-Bossanova transition-colors">
                   {t('buttonText')}
                 </Button>
               </Link>

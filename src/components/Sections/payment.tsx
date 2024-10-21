@@ -18,7 +18,7 @@ export default function Payment() {
   const t = useTranslations('HomePage.Payment');
 
   return (
-    <section className="py-8 flex justify-center items-center bg-Deluge" id="payment-section">
+    <section className="py-16 flex justify-center items-center bg-Deluge" id="payment-section">
 
       {/*<div className="w-full lg:w-1/2 space-y-4 text-lg text-white">
         <h1 className="text-3xl font-roboto text-white"> {t('title2')} </h1>
@@ -34,7 +34,7 @@ export default function Payment() {
           <CardTitle className="text-white text-xl font-roboto">{t('title')}</CardTitle>
           <CardDescription className="text-gray-400 text-5xl font-roboto flex items-center">
             {/* Preço original riscado */}
-            <span className="text-2xl line-through text-red-500 mr-2">{t('oldPrice')}</span>
+            <span className="text-2xl line-through text-red-600 mr-2">{t('oldPrice')}</span>
             {/* Preço com desconto */}
             <span className="text-white">{t('price')}</span>
             <span className="text-2xl ml-2">{t('pricePerMonth')}</span>

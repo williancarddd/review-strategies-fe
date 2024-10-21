@@ -9,7 +9,7 @@ export default function ForgettingCurveExplanation() {
   const t = useTranslations('HomePage.ForgettingCurveExplanation');
 
   return (
-    <section className="py-16 px-6 lg:px-8 bg-Deluge">
+    <section className="py-32 px-6 lg:px-8 bg-Deluge">
       <div className="max-w-4xl mx-auto">
 
         {/* Título */}
@@ -29,7 +29,7 @@ export default function ForgettingCurveExplanation() {
             <p>{t('paragraph1')}</p>
             <div className="mt-8">
               <Link href="#payment-section"  >
-                <Button className="border-2 bg-Deluge text-white px-6 py-3 rounded-full text-lg hover:bg-Bossanova transition-colors">
+                <Button className="border-2 bg-Deluge text-white p-6 rounded-full text-lg hover:bg-Bossanova transition-colors">
                   {t('buttonText')}
                 </Button>
               </Link>

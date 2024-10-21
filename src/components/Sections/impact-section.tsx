@@ -21,8 +21,8 @@ export default function ImpactSection({
   buttonText,
   imageUrl,
   imageAlt,
-  imageWidth = 500,
-  imageHeight = 500,
+  imageWidth = 700,
+  imageHeight = 700,
   buttonLink,
 }: SectionProps) {
   return (
@@ -36,8 +36,8 @@ export default function ImpactSection({
       </div>
 
       {/* Imagem à direita */}
-      <div className="bg-wh w-full flex justify-center items-center rounded-lg">
-        <Image src={imageUrl} alt={imageAlt} width={imageWidth} height={imageHeight} />
+      <div className="bg-wh w-full flex justify-center items-center rounded-lg ">
+        <Image className='shadow-2xl rounded-md' src={imageUrl} alt={imageAlt} width={imageWidth} height={imageHeight} />
       </div>
     </section>
   );

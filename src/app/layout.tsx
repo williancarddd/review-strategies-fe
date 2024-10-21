@@ -28,7 +28,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       </head>
       <body
         className={cn(
-          'min-h-screen bg-background font-roboto antialiased',
+          'min-h-screen bg-background font-roboto text-black antialiased',
           ...Fonts
         )}
       >
