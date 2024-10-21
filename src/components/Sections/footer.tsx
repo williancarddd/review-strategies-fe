@@ -17,7 +17,7 @@ export default function Footer() {
         <div className="space-y-6 flex flex-col items-center lg:items-start">
           <div>
             <Link href="/">
-              <Image src="/Herman.png" alt="Review Strategies" width={100} height={100} />
+              <Image src="/Herman.png" alt="Herman.ai" width={100} height={100} />
             </Link>
           </div>
           <div className="space-y-4">

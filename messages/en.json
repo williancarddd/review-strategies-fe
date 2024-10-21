@@ -1,7 +1,7 @@
 {
     "HomePage": {
         "ImpactSection": {
-            "title": "Build with Review Strategies",
+            "title": "Build with Hermain.ai",
             "subtitle": "The best way to optimize your studies",
             "description": "Our platform helps you improve your studies with proven revision techniques.",
             "buttonText": "I WANT IT"
@@ -129,7 +129,7 @@
             },
             "partners": "Partners",
             "poweredBy": "Powered by Stripe",
-            "copyright": "Copyright © 2020, Review Strategies. All rights reserved."
+            "copyright": "Copyright © 2020, Herman.ai. All rights reserved."
         }
     }
 }

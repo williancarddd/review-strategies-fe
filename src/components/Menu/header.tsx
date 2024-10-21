@@ -32,7 +32,7 @@ export default function Header() {
         <Link href="/">
           <Image src="/Herman.png" alt="logo" width={60} height={60} />
         </Link>
-        <p className="font-medium font-roboto text-3xl text-white">Review Strategies</p>
+        <p className="font-medium font-roboto text-3xl text-white">Herman.ai</p>
       </div>
 
       {/* Links visíveis na versão desktop */}

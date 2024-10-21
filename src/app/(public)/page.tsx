@@ -19,6 +19,7 @@ export default function Home() {
         <Header />
       </div>
       <main>
+      
         <ImpactSection
           title={t('ImpactSection.title')}
           subtitle={t('ImpactSection.subtitle')}
@@ -28,6 +29,8 @@ export default function Home() {
           imageUrl="/herm.png"
           imageAlt="Imagem de um computador com um olho"
         />
+
+
         <ForgettingCurveSection />
         <ForgettingCurveExplanation />
         <HowToWork />

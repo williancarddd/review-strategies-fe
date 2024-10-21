@@ -46,7 +46,7 @@ export default function Sidebar({ menuItems, onClose, menuOpen, userProfileData 
         <Link href="/">
           <Image src="/Logo.png" alt="logo" width={60} height={60} className="rounded-full" />
         </Link>
-        <p className="font-medium text-2xl">Review Strategies</p>
+        <p className="font-medium text-2xl">Herman.ai</p>
       </div>
 
       <nav className="flex flex-col mt-8 w-full text-center h-full justify-between">

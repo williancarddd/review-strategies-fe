@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { FaBook, FaChalkboardTeacher, FaChartLine, FaLaptopCode } from 'react-icons/fa';
 import { Button } from "../ui/button";
 import { useTranslations } from 'next-intl';
+import { AnimatedListDemo } from '../Animateds/notifications';
 
 interface FeatureItemProps {
   icon: JSX.Element;
@@ -20,6 +21,37 @@ const FeatureItem: FC<FeatureItemProps> = ({ icon, title, description }) => (
     <p className="text-gray-500">{description}</p>
   </div>
 );
+let notifications = [
+  {
+    name: "Payment received",
+    description: "Magic UI",
+    time: "15m ago",
+ 
+    icon: "💸",
+    color: "#00C9A7",
+  },
+  {
+    name: "User signed up",
+    description: "Magic UI",
+    time: "10m ago",
+    icon: "👤",
+    color: "#FFB800",
+  },
+  {
+    name: "New message",
+    description: "Magic UI",
+    time: "5m ago",
+    icon: "💬",
+    color: "#FF3D71",
+  },
+  {
+    name: "New event",
+    description: "Magic UI",
+    time: "2m ago",
+    icon: "🗞️",
+    color: "#1E86FF",
+  },
+];
 
 const HowToWork = () => {
   const t = useTranslations('HomePage.HowToWork'); // Using the 'HomePage.HowToWork' key
@@ -43,6 +75,7 @@ const HowToWork = () => {
               className="rounded-lg"
             />
           </div>
+          
 
           {/* Texto explicativo e Botão*/}
           <div className="w-full lg:w-1/2 space-y-4 text-lg  font-semiroboto text-Bossanova">
@@ -51,6 +84,7 @@ const HowToWork = () => {
               {t('title')}
             </h1>
             <p>{t('paragraph1')}</p>
+            <AnimatedListDemo  className='h-32'  />
             <div className="mt-8">
               <Link href="#payment-section">
                 <Button className="bg-Deluge text-white p-6 rounded-full text-lg hover:bg-Bossanova transition-colors">

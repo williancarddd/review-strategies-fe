@@ -1,6 +1,5 @@
 'use client';
 import Image from 'next/image';
-import Link from 'next/link';
 
 interface SectionProps {
   title: string;
@@ -27,18 +26,18 @@ export default function ImpactSection({
 }: SectionProps) {
   return (
     <section className="py-16 px-6 lg:px-8 bg-Deluge">
-      {/* Texto à esquerda */}
-      <div className="mb-8 text-center">
-        <h1 className="text-3xl font-bold p-4 font-Roboto text-white">
-          {title}
-        </h1>
-        <h2 className=" font-semirobot text-white">{subtitle}</h2>
-      </div>
+        {/* Texto à esquerda */}
+        <div className="mb-8 text-center">
+          <h1 className="text-3xl font-bold p-4 font-Roboto text-white">
+            {title}
+          </h1>
+          <h2 className=" font-semirobot text-white">{subtitle}</h2>
+        </div>
 
-      {/* Imagem à direita */}
-      <div className="bg-wh w-full flex justify-center items-center rounded-lg ">
-        <Image className='shadow-2xl rounded-md' src={imageUrl} alt={imageAlt} width={imageWidth} height={imageHeight} />
-      </div>
+        {/* Imagem à direita */}
+        <div className="bg-wh w-full flex justify-center items-center rounded-lg ">
+          <Image className='shadow-2xl rounded-md' src={imageUrl} alt={imageAlt} width={imageWidth} height={imageHeight} />
+        </div>
     </section>
   );
 }
