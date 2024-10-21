@@ -30,7 +30,7 @@ export default function Header() {
         <Link href="/">
           <Image src="/Logo.png" alt="logo" width={40} height={40} />
         </Link>
-        <p className="font-medium font-vibur text-3xl">Review Strategies</p>
+        <p className="font-medium font-roboto text-3xl">Review Strategies</p>
       </div>
 
       

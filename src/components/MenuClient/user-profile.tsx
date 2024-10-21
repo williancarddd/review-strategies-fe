@@ -3,10 +3,10 @@ import { AvatarImage } from '@radix-ui/react-avatar';
 
 interface UserProfileProps {
   name: string;
-  email: string;
+  role: string;
 }
 
-export default function UserProfile({ name, email }: UserProfileProps) {
+export default function UserProfile({ name, role }: UserProfileProps) {
   return (
     <div className="flex flex-col items-center space-y-4 mb-6">
       <Avatar className="w-12 h-12">
@@ -14,8 +14,8 @@ export default function UserProfile({ name, email }: UserProfileProps) {
         <AvatarFallback>{name?.charAt(0)}</AvatarFallback>
       </Avatar>
       <div className="text-center">
-        <p className="font-bold text-white">{name}</p>
-        <p className="text-sm text-white">{email}</p>
+        <p className="font-bold text-customPrimary-deluge">{name}</p>
+        <p className="text-sm text-customPrimary-deluge">{role}</p>
       </div>
     </div>
   );

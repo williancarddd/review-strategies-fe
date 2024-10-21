@@ -30,7 +30,7 @@ export const useAuthStore = create<AuthState>()(
       login: async (email: string, password: string) => {
         try {
           const data: User = await loginUser(email, password); // Chama o serviço de login
-         
+          data.hasActiveSubscription = true; // Adiciona a propriedade hasActiveSubscription
           set({ user: data, isAuthenticated: true });
           localStorage.setItem('auth-token', data.access_token); // Armazena o token
           return data;

@@ -23,7 +23,7 @@ export function useAuth() {
         // Verifica se o usuário tem uma assinatura ativa
         await checkSubscription.mutateAsync({ userId: loginResult.sub });
       } else {
-        router.push("/pages/calendar");
+        router.push("/pages/dashboard");
       }
     },
     onError: () => {

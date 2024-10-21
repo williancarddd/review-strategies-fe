@@ -41,7 +41,7 @@ export function usePayment() {
     },
     onSuccess: ({ hasActiveSubscription, userId }) => {
       if (hasActiveSubscription) {
-        router.push('/pages/calendar'); // Redireciona para a página de calendário se tiver uma assinatura ativa
+        router.push('/pages/dashboard'); // Redireciona para a página de calendário se tiver uma assinatura ativa
       } else {
         createCheckout.mutateAsync({ userId }); // Se não tiver assinatura, cria uma sessão de checkout
       }
