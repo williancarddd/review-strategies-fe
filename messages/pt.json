@@ -12,6 +12,7 @@
         },
         "ForgettingCurveExplanation": {
             "title": "Nossa plataforma segue a teoria de Ebbinghaus!",
+            "ImageHerma": "Desenho do Herman",
             "paragraph1": "Ela faz o planejamento de estudos baseado nas revisões, e você não vai esquecer mais nada!",
             "buttonText": "ASSINE AGORA"
         },
@@ -19,7 +20,8 @@
             "title": "Você Ganha Desempenho",
             "Imagedash": "Imagem da dashboard",
             "paragraph1": "Você visualiza seu planejamento de estudos, que é feito de acordo com a sua disponibilidade de tempo e suas necessidades.",
-            "buttonText": "ASSINE AGORA"
+            "buttonText": "ASSINE AGORA",
+            "ImageHerma": "Desenho do Herman"
         },
         "HowStart": {
             "title": "Em 3 passos",
@@ -86,5 +88,5 @@
             "poweredBy": "Powered by Stripe",
             "copyright": "Copyright © 2020, Hermain.ai. Todos os direitos reservados."
         }
-}
     }
+}

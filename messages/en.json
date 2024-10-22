@@ -2,73 +2,28 @@
     "HomePage": {
         "ImpactSection": {
             "title": "Build with Hermain.ai",
-            "subtitle": "The best way to optimize your studies",
-            "description": "Our platform helps you improve your studies with proven revision techniques.",
-            "buttonText": "I WANT IT"
+            "subtitle": "The best way to optimize your studies"
         },
         "ForgettingCurveSection": {
-            "title": "Do you forget after studying something? 🤔",
-            "gifAlt": "Forgetting Curve GIF",
-            "paragraph1": "Who hasn’t forgotten something they studied the week before? Be honest!",
-            "paragraph2": {
-                "txt1": "Have you ever heard of",
-                "txt2": "Ebbinghaus' Forgetting Curve",
-                "txt3": "? No? (or have you already forgotten? haha)"
-            },
-            "paragraph3": "Before you get scared by that name, know that it affects everyone! This means that while you're reading this post, you're already forgetting something you studied."
+            "title": "How can I avoid forgetting? 🤔",
+            "ImageHerma": "Drawing of Hermann",
+            "paragraph1": "In 1885, German psychologist Hermann Ebbinghaus introduced the world to his famous theory of the Forgetting Curve 📉, which graphically demonstrates the amount of information our brain is able to retain over time.",
+            "buttonText": "SUBSCRIBE NOW"
         },
         "ForgettingCurveExplanation": {
-            "title": "How do I not forget? 🤔",
-            "paragraph1": {
-                "txt1": "The good news 🎉 is that if you understand this theory better and get organized, you can stay focused and",
-                "txt2": "not forget",
-                "txt3": "what’s important!"
-            },
-            "paragraph2": {
-                "txt1": "In 1885, German psychologist",
-                "txt2": "Hermann Ebbinghaus",
-                "txt3": "introduced his famous theory of the",
-                "txt4": "Forgetting Curve",
-                "txt5": "📉, which graphically shows how much information our brain retains over time."
-            },
-            "graphAlt": "Forgetting Curve Graph",
-            "paragraph3": {
-                "txt1": "Our platform follows",
-                "txt2": "Ebbinghaus",
-                "txt3": "’ theory! 🧠 It plans your",
-                "txt4": "study schedule",
-                "txt5": "based on revisions, so you won’t forget anything! 🚀"
-            },
-            "paragraph4": {
-                "txt1": "For example, after studying",
-                "txt2": "MATH",
-                "txt3": ", you should do a",
-                "txt4": "review",
-                "txt5": "right after studying, another 24 hours later, one more after 7 days, and finally another after 30 days. We ensure you stick to this schedule! 📅✅"
-            }
+            "title": "Our platform follows Ebbinghaus' theory!",
+            "ImageHerma": "Drawing of Hermann",
+            "paragraph1": "It plans your study schedule based on revisions, so you won’t forget anything!",
+            "buttonText": "SUBSCRIBE NOW"
         },
         "HowToWork": {
-            "title": "How It Works",
-            "feature1": {
-                "title": "You Gain Performance",
-                "description": "You visualize your study plan, which is made according to your time availability and your needs."
-            },
-            "feature2": {
-                "title": "You Gain Precision",
-                "description": "Using Hermann Ebbinghaus' technique, you can review the content at the right time, avoiding the forgetting curve."
-            },
-            "feature3": {
-                "title": "Track Your Progress",
-                "description": "Track your progress and see how you're improving in your studies."
-            },
-            "feature4": {
-                "title": "Get Immediate Results",
-                "description": "The results come quickly, as your time and calendar are already organized based on the most efficient study techniques."
-            },
-            "buttonText": "Start now"
+            "title": "You Gain Performance",
+            "Imagedash": "Dashboard Image",
+            "paragraph1": "You visualize your study plan, which is made according to your time availability and your needs.",
+            "buttonText": "SUBSCRIBE NOW",
+            "ImageHerma": "Drawing of Hermann"
         },
         "HowStart": {
-            
             "title": "In 3 steps",
             "step1": {
                 "title": "Create your account",
@@ -86,6 +41,8 @@
         "Payment": {
             "title": "Pioneer",
             "description": "Change your routine, change your life, achieve better results. Enjoy the best of our platform.",
+            "title2": "Achieve your goals!",
+            "paragraph1": "Your future starts today. Take care of your learning and prepare to achieve great results.",
             "price": "$1.36",
             "oldPrice": "$2.75",
             "pricePerMonth": "/month",
@@ -129,7 +86,7 @@
             },
             "partners": "Partners",
             "poweredBy": "Powered by Stripe",
-            "copyright": "Copyright © 2020, Herman.ai. All rights reserved."
+            "copyright": "Copyright © 2020, Hermain.ai. All rights reserved."
         }
     }
 }

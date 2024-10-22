@@ -8,6 +8,7 @@ import { useTranslations } from 'next-intl';
 export default function ForgettingCurveExplanation() {
   const t = useTranslations('HomePage.ForgettingCurveExplanation');
 
+  
   return (
     <section className="py-32 px-6 lg:px-8 bg-Deluge">
       <div className="max-w-4xl mx-auto">
