@@ -87,6 +87,22 @@
             "partners": "Partners",
             "poweredBy": "Powered by Stripe",
             "copyright": "Copyright © 2020, Hermain.ai. All rights reserved."
+        },
+        "notifications": {
+            "item1": {
+                "name": "Time to review",
+                "description": "Your review content is Geography",
+                "time": "15m ago",
+                "icon": "💸",
+                "color": "#00C9A7"
+            },
+            "item2": {
+                "name": "Review soon",
+                "description": "Your review content is Mathematics",
+                "time": "10m ago",
+                "icon": "👤",
+                "color": "#FFB800"
+            }
         }
     }
 }

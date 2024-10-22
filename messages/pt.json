@@ -87,6 +87,22 @@
             "partners": "Parceiros",
             "poweredBy": "Powered by Stripe",
             "copyright": "Copyright © 2020, Hermain.ai. Todos os direitos reservados."
+        },
+        "notifications": {
+            "item1": {
+                "name": "Chegou a hora de revisar",
+                "description": "O seu conteúdo de revisão é Geografia",
+                "time": "15m atrás",
+                "icon": "💸",
+                "color": "#00C9A7"
+            },
+            "item2": {
+                "name": "Você vai revisar daqui a pouco",
+                "description": "O seu conteúdo de revisão é Matemática",
+                "time": "10m atrás",
+                "icon": "👤",
+                "color": "#FFB800"
+            }
         }
     }
 }
