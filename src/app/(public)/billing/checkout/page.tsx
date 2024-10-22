@@ -2,25 +2,29 @@
 import { usePayment } from "@/hooks/use-payment";
 import { useAuthStore } from "@/stores/auth-store";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 
 export default function Page() {
   const router = useRouter();
-  const {checkSubscription} = usePayment();
+  const { checkSubscription } = usePayment();
   const { user } = useAuthStore();
 
-  useEffect(() => {
+
+  const checkUserSubscription = useCallback(async () => {
     if (user) {
-      checkSubscription.mutateAsync({
+      await checkSubscription.mutateAsync({
         userId: user.sub!,
       });
     }
-  }, [user]);
+  }, [user, checkSubscription]);
+
+  useEffect(() => {
+    if (user) {
+      checkUserSubscription();
+    }
+  }, [user, checkUserSubscription]);
 
   return (
     <></>
   );
-
 }
-
-

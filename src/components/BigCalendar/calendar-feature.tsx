@@ -3,7 +3,6 @@ import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { StudyDay } from '@/schemas/study-schema';
-import { color } from 'framer-motion';
 
 const localizer = momentLocalizer(moment);
 
