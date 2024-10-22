@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CalendarFeature from './calendar-feature';
-import EventModal from '../Event/event-modal';
 import { EventList } from './event-list';
 import { useAuthStore } from '@/stores/auth-store';
-import { useFetchStudyMonth } from '@/hooks/study-hook';
 import { useStudyDayStore } from '@/stores/study-store';
 
 export default function BigCalendar() {
@@ -15,7 +13,6 @@ export default function BigCalendar() {
   }>({ userId: '', date: new Date() });
   const { user } = useAuthStore();
   const { studyDaysMonth } = useStudyDayStore();
-  const fetechDataMonth = useFetchStudyMonth();
 
   const handleNavigate = (newDate: Date) => {
     setDate(newDate);
@@ -29,14 +26,6 @@ export default function BigCalendar() {
       console.warn('Usuário não definido');
     }
   };
-
-  useEffect(() => {
-    if (user?.sub) {
-      fetechDataMonth.mutate({ userId: user.sub, date });
-    } else {
-      console.warn('Usuário não definido');
-    }
-  }, [date, user]);
 
 
   return (
@@ -57,18 +46,7 @@ export default function BigCalendar() {
 
 
       {/* Modal de eventos */}
-      <EventModal
-        isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        selectedDate={selectedDate}
-        refetch={() => {
-          if (user?.sub) {
-            fetechDataMonth.mutate({ userId: user.sub, date });
-          } else {
-            console.warn('Usuário não definido');
-          }
-        }}
-      />
+      
     </div>
   );
 }

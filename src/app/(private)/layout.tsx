@@ -2,7 +2,6 @@
 
 import { ReactNode, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Header from '@/components/Menu/headerPrivate';
 import { useAuthStore } from '@/stores/auth-store';
 import { cn } from '@/lib/utils';
 import { Fonts } from '@/lib/fonts';
