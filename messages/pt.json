@@ -1,5 +1,14 @@
 {
     "HomePage": {
+        "Header": {
+            "home": "Home",
+            "features": "Funcionalidades",
+            "pricing": "Preço",
+            "blog": "Blog",
+            "subscribe": "ASSINAR AGORA",
+            "login": "Login",
+            "logout": "Logout"
+        },
         "ImpactSection": {
             "title": "A melhor maneira de otimizar seus Estudos",
             "subtitle": "O Herman.ai ajuda você a melhorar seus estudos com técnicas comprovadas de revisão."
@@ -46,19 +55,19 @@
             "price": "R$ 7.90",
             "oldPrice": "R$ 14.90",
             "pricePerMonth": "/mês",
-            "badge": "Mensal",
+            "badge": "Plano Mensal",
             "features": {
                 "feature1": "Todas as funcionalidades",
                 "feature2": "Inclusão de temas de estudos",
                 "feature3": "Subtópicos de estudo",
-                "feature4": "Notificações por preferência.",
-                "feature5": "Calendário inteligente.",
-                "feature6": "Personalização dos modos de estudo.",
-                "feature7": "Estatísticas de estudo.",
-                "feature8": "Cadastro de matérias e disciplinas.",
-                "feature9": "24x7x30 & 24x3x7 & 24x3x15"
+                "feature4": "Notificações personalizadas",
+                "feature5": "Calendário inteligente",
+                "feature6": "Modos de estudo personalizados",
+                "feature7": "Estatísticas detalhadas de desempenho",
+                "feature8": "Cadastro de matérias e disciplinas",
+                "feature9": "Suporte disponível 24x7"
             },
-            "buttonText": "QUERO AGORA"
+            "buttonText": "ASSINE AGORA"
         },
         "Footer": {
             "socialLinks": {

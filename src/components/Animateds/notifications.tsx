@@ -66,7 +66,7 @@ export const AnimatedListDemo: FC<{ className?: string }> = ({ className }) => {
   ];
 
   return (
-    <div className={cn("relative flex h-[500px] w-full flex-col p-6 overflow-hidden rounded-lg border bg-background md:shadow-xl", className)}>
+    <div className={cn("relative flex h-[500px] w-full flex-col p-2 overflow-hidden rounded-lg border bg-background md:shadow-xl", className)}>
       <AnimatedList>
         {notifications.map((item, idx) => (
           <Notification {...item} key={idx} />

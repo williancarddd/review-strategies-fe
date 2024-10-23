@@ -18,7 +18,7 @@ export default function ImpactSection() {
 
         {/* Imagem à direita */}
         <div className="bg-wh w-full flex justify-center items-center rounded-lg ">
-          <Image className='shadow-2xl rounded-md' src={"/herm.png"} alt={""} width={500} height={500} />
+          <Image className='shadow-2xl rounded-md' src={"/herm.png"} alt={""} width={900} height={500} />
         </div>
     </section>
   );

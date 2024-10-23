@@ -25,7 +25,7 @@ interface SidebarProps {
 
 export default function Sidebar({ menuItems, onClose, menuOpen, userProfileData }: SidebarProps) {
   const pathname = usePathname();
-  const { isAuthenticated, logout } = useAuthStore();
+  const {  logout } = useAuthStore();
 
   const handleScreenLogin = () => {
     logout();

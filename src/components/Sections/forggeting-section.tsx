@@ -13,9 +13,6 @@ export default function ForgettingCurveSection() {
     <section className="py-32 px-6 lg:px-8 bg-Romantic ">
       <div className="max-w-4xl mx-auto">
 
-        {/* Título */}
-
-
         {/* Imagem e Texto */}
         <div className="flex flex-col lg:flex-row items-center gap-8">
 

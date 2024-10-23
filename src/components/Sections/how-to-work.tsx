@@ -26,7 +26,7 @@ const HowToWork = () => {
   const t = useTranslations('HomePage.HowToWork'); // Using the 'HomePage.HowToWork' key
 
   return (
-    <section className="py-32 px-6 lg:px-8 bg-Romantic">
+    <section className="py-32 px-6 lg:px-8 bg-Romantic" id="how-to-work">
       <div className="max-w-4xl mx-auto">
 
 

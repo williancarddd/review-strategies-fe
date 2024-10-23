@@ -16,7 +16,7 @@ export default function PrivateLayout({ children }: PrivateLayoutProps) {
   const { isAuthenticated } = useAuthStore();
   const [loading, setLoading] = useState(true);
 
-  const isTestEnvironment = false;
+  const isTestEnvironment = true;
 
   useEffect(() => {
     if (!isTestEnvironment) {

@@ -1,5 +1,14 @@
 {
     "HomePage": {
+        "Header": {
+            "home": "Home",
+            "features": "Features",
+            "pricing": "Pricing",
+            "blog": "Blog",
+            "subscribe": "SUBSCRIBE NOW",
+            "login": "Login",
+            "logout": "Logout"
+        },
         "ImpactSection": {
             "title": "Build with Hermain.ai",
             "subtitle": "The best way to optimize your studies"
@@ -40,25 +49,25 @@
         },
         "Payment": {
             "title": "Pioneer",
-            "description": "Change your routine, change your life, achieve better results. Enjoy the best of our platform.",
+            "description": "Change your routine, change your life, get better results. Enjoy the best of our platform.",
             "title2": "Achieve your goals!",
             "paragraph1": "Your future starts today. Take care of your learning and prepare to achieve great results.",
-            "price": "$1.36",
-            "oldPrice": "$2.75",
+            "price": "$7.90",
+            "oldPrice": "$14.90",
             "pricePerMonth": "/month",
-            "badge": "Monthly",
+            "badge": "Monthly Plan",
             "features": {
                 "feature1": "All features",
-                "feature2": "Add study topics",
+                "feature2": "Study topics inclusion",
                 "feature3": "Study subtopics",
-                "feature4": "Notifications by preference.",
-                "feature5": "Smart calendar.",
-                "feature6": "Study modes customization.",
-                "feature7": "Study statistics.",
-                "feature8": "Subject and discipline registration.",
-                "feature9": "24x7x30 & 24x3x7 & 24x3x15"
+                "feature4": "Personalized notifications",
+                "feature5": "Smart calendar",
+                "feature6": "Customized study modes",
+                "feature7": "Detailed performance statistics",
+                "feature8": "Subjects and disciplines registration",
+                "feature9": "24x7 support available"
             },
-            "buttonText": "I WANT IT NOW"
+            "buttonText": "SUBSCRIBE NOW"
         },
         "Footer": {
             "socialLinks": {
