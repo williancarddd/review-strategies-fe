@@ -22,11 +22,11 @@ export default function Payment() {
       <div className="flex flex-col lg:flex-row justify-center items-center lg:space-x-16 w-full max-w-6xl">
         
         {/* Texto da Esquerda */}
-        <div className="text-center lg:text-left lg:w-1/2 space-y-4 text-lg text-white mb-8 lg:mb-0">
-          <h1 className="text-2xl lg:text-3xl font-bold">
+        <div className="text-center lg:text-left lg:w-2/5 space-y-4  text-white mb-8 lg:mb-0">
+          <h1 className="text-2xl lg:text-4xl font-bold">
             {t('title2')}
           </h1>
-          <p className="text-base lg:text-lg">
+          <p className="lg:text-2xl text-lg ">
             {t('paragraph1')}
           </p>
         </div>
