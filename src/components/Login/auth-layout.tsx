@@ -11,7 +11,7 @@ export function AuthLayout({ children }: AuthLayoutProps) {
   return (
     <div className="min-h-screen flex">
       {/* Área do Formulário à Esquerda */}
-      <div className="flex-1 bg-slate-950 text-white flex items-center justify-center p-8">
+      <div className="flex-1">
         {children}
       </div>
 
