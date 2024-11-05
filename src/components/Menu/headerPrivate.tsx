@@ -2,12 +2,9 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
-import { Button } from '../ui/button';
 import Link from 'next/link';
 import { useAuthStore } from '@/stores/auth-store'; // Importando o estado de autenticação
 import { useRouter } from 'next/navigation';
-import LocaleSwitcher from '../i18n/LocaleSwitcher';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -32,8 +29,6 @@ export default function Header() {
         </Link>
         <p className="font-medium font-roboto text-3xl">Hermain.ai</p>
       </div>
-
-      
     </header>
   );
 }

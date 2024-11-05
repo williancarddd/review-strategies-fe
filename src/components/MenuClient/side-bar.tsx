@@ -1,11 +1,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import UserProfile from './user-profile';
-import { AiOutlineClose } from 'react-icons/ai';
-import router, { useRouter } from 'next/router'; // Corrigido para useRouter
+import router from 'next/router'; // Corrigido para useRouter
 import { useAuthStore } from '@/stores/auth-store';
-import { Button } from '../ui/button';
-import { FaClipboardList, FaCalendarAlt, FaBell, FaCog } from 'react-icons/fa'; // Exemplo de ícones
 import Image from 'next/image';
 import { RiUserSettingsFill } from "react-icons/ri";
 

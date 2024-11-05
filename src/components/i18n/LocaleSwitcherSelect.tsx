@@ -1,15 +1,15 @@
 'use client';
 
-import {CheckIcon, LanguageIcon} from '@heroicons/react/24/solid';
+import { CheckIcon, LanguageIcon } from '@heroicons/react/24/solid';
 import * as Select from '@radix-ui/react-select';
 import clsx from 'clsx';
-import {useTransition} from 'react';
-import {Locale} from '@/i18n/config';
-import {setUserLocale} from '@/services/locale';
+import { useTransition } from 'react';
+import { Locale } from '@/i18n/config';
+import { setUserLocale } from '@/utils/locale';
 
 type Props = {
   defaultValue: string;
-  items: Array<{value: string; label: string}>;
+  items: Array<{ value: string; label: string }>;
   label: string;
 };
 

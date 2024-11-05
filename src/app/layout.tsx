@@ -4,7 +4,6 @@ import { Analytics } from "@vercel/analytics/react";
 import { Fonts } from '@/lib/fonts';  // Importar fontes centralizadas
 import './globals.css';
 import { Provider } from '@/providers/provider';
-import { NotificationProvider } from '@/components/Notification/notification-provider';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 import Script from 'next/script';
@@ -34,9 +33,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       >
         <NextIntlClientProvider messages={messages}>
           <Provider>
-            <NotificationProvider>
-              {children}
-            </NotificationProvider>
+            {children}
           </Provider>
         </NextIntlClientProvider>
         <Analytics />

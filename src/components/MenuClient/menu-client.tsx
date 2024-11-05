@@ -1,9 +1,8 @@
 "use client";
 
-import { useEffect, useState } from 'react';
-import { FaCalendarAlt, FaFileAlt, FaEnvelope } from 'react-icons/fa';
+import {  useState } from 'react';
+import { FaCalendarAlt, FaFileAlt } from 'react-icons/fa';
 import Sidebar from './side-bar';
-import { useAuthStore } from '@/stores/auth-store';
 import HamburgerButton from './hamburguer';
 import { MdNotificationsActive } from "react-icons/md";
 import { useUserStore } from '@/stores/user-store';
@@ -20,7 +19,6 @@ export default function MenuClient() {
 
   const menuItems = [
     { id: 'dashboard', label: 'Meus Estudos', href: '/pages/dashboard', icon: <FaCalendarAlt size={32} /> },
-    { id: 'notifications', label: 'Notificações', href: '/pages/notification', icon: <MdNotificationsActive size={32} /> },
     { id: 'support', label: 'Suporte', href: '/pages/support', icon: <FaFileAlt size={32} /> },
   ];
 
