@@ -40,9 +40,8 @@ export default function Sidebar({ menuItems, onClose, menuOpen, userProfileData 
       {/* Informações de Perfil com Logo */}
       <div className="flex items-center space-x-4 ml-4">
         <Link href="/">
-          <Image src="/Logo.png" alt="logo" width={60} height={60} className="rounded-full" />
+          <Image src="/Herman.png" alt="logo" width={128} height={128} className="rounded-full" />
         </Link>
-        <p className="font-medium text-2xl">Herman.ai</p>
       </div>
 
       <nav className="flex flex-col mt-8 w-full text-center h-full justify-between">

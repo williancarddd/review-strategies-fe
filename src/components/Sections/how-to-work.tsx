@@ -37,7 +37,7 @@ const HowToWork = () => {
           <div className="w-full lg:w-1/2 flex justify-center">
             {/* Substitua pelo seu GIF ou imagem */}
             <Image
-              src="/herm.png"
+              src="/dashboard-example.svg"
               alt={t('ImageHerma')}
               width={632}
               height={708.06}

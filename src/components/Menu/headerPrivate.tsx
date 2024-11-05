@@ -25,7 +25,7 @@ export default function Header() {
       {/* Logo and Title */}
       <div className="flex items-center space-x-4">
         <Link href="/">
-          <Image src="/Logo.png" alt="logo" width={40} height={40} />
+          <Image src="/Herman.png" alt="logo" width={40} height={40} />
         </Link>
         <p className="font-medium font-roboto text-3xl">Hermain.ai</p>
       </div>
