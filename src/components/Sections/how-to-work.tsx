@@ -3,7 +3,6 @@
 import { FC } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaBook, FaChalkboardTeacher, FaChartLine, FaLaptopCode } from 'react-icons/fa';
 import { Button } from "../ui/button";
 import { useTranslations } from 'next-intl';
 import { AnimatedListDemo } from '../Animateds/notifications';
@@ -13,14 +12,6 @@ interface FeatureItemProps {
   title: string;
   description: string;
 }
-
-const FeatureItem: FC<FeatureItemProps> = ({ icon, title, description }) => (
-  <div className="flex flex-col items-center text-center space-y-4" id="feature-item">
-    <div className="text-blue-500 text-6xl">{icon}</div>
-    <h3 className="text-xl font-bold">{title}</h3>
-    <p className="text-gray-500">{description}</p>
-  </div>
-);
 
 const HowToWork = () => {
   const t = useTranslations('HomePage.HowToWork'); // Using the 'HomePage.HowToWork' key
