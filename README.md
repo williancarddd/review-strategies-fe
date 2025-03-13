@@ -9,6 +9,7 @@
   </a>
 </p>
 
+  <img alt="Version" src="readme.png" />
 > Nossa plataforma ajuda você a melhorar seus estudos com técnicas comprovadas de revisão.
 
 ### 🏠 [Homepage](https://www.reviewstrategies.com.br/)
