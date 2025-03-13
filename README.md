@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h1 align="center">Welcome to Review Strategies 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000" />
+  <a href="https://www.reviewstrategies.com.br/" target="_blank">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
+  </a>
+  <a href="https://twitter.com/williancarddd" target="_blank">
+    <img alt="Twitter: williancarddd" src="https://img.shields.io/twitter/follow/williancarddd.svg?style=social" />
+  </a>
+</p>
 
-## Getting Started
+> Nossa plataforma ajuda você a melhorar seus estudos com técnicas comprovadas de revisão.
 
-First, run the development server:
+### 🏠 [Homepage](https://www.reviewstrategies.com.br/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### ✨ [Demo](https://www.reviewstrategies.com.br/)
+
+## Install
+
+```sh
+yarn install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Usage
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+yarn run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Author
 
-## Learn More
+👤 **William Cardoso Barbosa**
 
-To learn more about Next.js, take a look at the following resources:
+* Website: wwww.ecotechamazonia.com.br
+* Twitter: [@williancarddd](https://twitter.com/williancarddd)
+* Github: [@williancarddd](https://github.com/williancarddd)
+* LinkedIn: [@https:\/\/www.linkedin.com\/in\/william-cardoso-9363a015a\/](https://linkedin.com/in/https:\/\/www.linkedin.com\/in\/william-cardoso-9363a015a\/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Show your support
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Give a ⭐️ if this project helped you!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
